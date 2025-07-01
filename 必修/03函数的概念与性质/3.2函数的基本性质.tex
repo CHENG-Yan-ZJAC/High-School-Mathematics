@@ -1,0 +1,46 @@
+\section{函数的基本性质}
+
+本节要点：
+\begin{itemize}
+    \item 掌握函数的各种性质。
+\end{itemize}
+
+~
+
+关于函数的性质有最值（更准确的说是有界性）、单调性、奇偶性、周期性等概念，具体见教材不再赘述。
+
+在分析函数的性质时，还是要注意从定义出发，如判断某个函数的单调性：
+\begin{enumerate}
+    \item 任取两个点，设$x_1<x_2$；
+    \item 带入函数，用前一章的不等式判断$y_1,y_2$的关系；
+    \item 根据定义得出单调性。
+\end{enumerate}
+
+\begin{tcolorbox}
+函数的性质依然逃不开第一章的思维方法，即我们从函数的定义出发总结各种函数的性质，或从性质的定义出发判断函数的性质，将这种性质运用到对实际问题的判断中。如判断如何用相等的材料制造最大容量的水桶，其实就是判断函数的最大值。
+\end{tcolorbox}
+
+~
+
+\begin{example}[综合运用8(1)，难度：$\star $]
+根据函数单调性的定义证明函数$y=x+\frac{9}{x}$在区间$\left[ 3,+\infty \right) $上单调递增。
+\end{example}
+
+解：
+
+这类问题还是要从定义出发。
+令$x_1<x_2\in \left[ 3,+\infty \right) $，则：
+\begin{align*}
+\left( x_1+\frac{9}{x_1} \right) -\left( x_2+\frac{9}{x_2} \right) &=x_1+\frac{9}{x_1}-x_2-\frac{9}{x_2} \\
+&=\frac{\left( x_1-x_2 \right) x_1x_2-9\left( x_1-x_2 \right)}{x_1x_2} \\
+&=\frac{\left( x_1-x_2 \right) \left( x_1x_2-9 \right)}{x_1x_2}
+\end{align*}
+由于在区间$\left[ 3,+\infty \right) $上必有$x_1x_2>9$，故单调递增，证毕。
+
+\begin{tcolorbox}
+不少证明题是直接从定义出发的，不需要定理的参与，所以不可忽视对定义的掌握和理解。
+\end{tcolorbox}
+
+
+
+

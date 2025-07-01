@@ -1,0 +1,192 @@
+\section{本章小结}
+
+本章的重点在线面关系，难点在于垂直关系。线面关系是面面关系的基础，而线线关系又是线面关系的基础。{\bf 所以一切空间关系，归根结底还是平面关系。}解题时需要紧紧抓住这一点，将空间中的点线元素通过平移、作垂线等方法放到同一个平面中讨论。
+
+我们在平面几何中详细讨论了点线面的关系，总结出了相当完善的理论，小到直线平行和垂直，大到三角形相似，甚至有平面向量。所以，要善用已知考察未知，用平面考察立体，牢牢记住{一切空间关系，归根结底还是平面关系。}
+
+%============================================================
+\subsection{习题}
+
+\begin{example}[综合运用11，难度：$\star \star \star $]
+如下图，在四面体$A-BCD$中，$M$是$AD$的中点，$P$是$BM$的中点，点$Q$在线段$AC$上，且$AQ=3QC$。求证：$PQ\parallel \text{平面}BCD$。
+\end{example}
+
+\begin{figure}[h]
+\centering
+\begin{minipage}{.49\textwidth}
+\centering
+\begin{tikzpicture}[style={x={(-145:0.5)},y={(1cm,0)},z={(0,1cm)}}, line join=round, scale=1.5]
+\coordinate[label=above:{$A$}] (A) at (1,1,1.5);
+\coordinate[label=left: {$B$}] (B) at (0,-1,0);
+\coordinate[label=below:{$C$}] (C) at (2,1,0);
+\coordinate[label=right:{$D$}] (D) at (0,1,0);
+\coordinate[label=right:{$M$}] (M) at ($(A)!0.5!(D)$);
+\coordinate[label=above:{$P$}] (P) at ($(B)!0.5!(M)$);
+\coordinate[label=right:{$Q$}] (Q) at ($(A)!0.75!(C)$);
+\coordinate[label=below:{$E$}] (E) at ($(A)!1.33!(P)$);
+\draw[thick] (A)--(B)--(C)--(A)--(D)--(C);
+\draw[dashed] (A)--(E)--(C) (M)--(B)--(D);
+\draw[dashed,blue] (P)--(Q);
+\fill[blue!50!white,opacity=0.5] (B)--(C)--(D)--cycle;
+\end{tikzpicture}
+\end{minipage}
+\begin{minipage}{.49\textwidth}
+\centering
+\begin{tikzpicture}[line join=round, scale=1.5]
+\coordinate[label=above:{$A$}] (A) at (0.5,1.5);
+\coordinate[label=left: {$B$}] (B) at (-1,0);
+\coordinate[label=right:{$D$}] (D) at (1,0);
+\coordinate[label=right:{$M$}] (M) at ($(A)!0.5!(D)$);
+\coordinate[label=above:{$P$}] (P) at ($(B)!0.5!(M)$);
+\coordinate[label=below:{$E$}] (E) at ($(A)!1.33!(P)$);
+\draw[thick] (A)--(B)--(D)--(A);
+\draw[dashed] (A)--(E) (M)--(B);
+\end{tikzpicture}
+\end{minipage}
+\end{figure}
+
+解：
+
+证明线面平行，就是证明线线平行，即在$BCD$中寻找一条线和$PQ$共线，很自然作$AP$并延长交$DB$于$E$。于是只需证明$PQ\parallel EC$即可，由于$AQ=3QC$，也即只需证明$AP=3PE$。将$ABD$单独拉出来，如上右图。最直观的就是使用平面向量，设$A=\left( a,b \right) ,D=\left( c,0 \right) $，则有：
+\[
+M=\left( \frac{a+c}{2},\frac{b}{2} \right) ,P=\left( \frac{a+c}{4},\frac{b}{4} \right)
+\]
+可构建直线$AE$的方程，求解得到$E$的坐标：
+\[
+E=\left( \frac{c}{3},0 \right)
+\]
+不难发现$\left| \overrightarrow{EA} \right|=4\left| \overrightarrow{EP} \right| $，余下略，证毕。
+
+\begin{tcolorbox}
+本题有$AP=3PE$之类不伦不类的数量关系，化到平面使用向量方法是最直观的。
+\end{tcolorbox}
+
+~
+
+\begin{example}[综合运用12，难度：$\star \star $]
+如图，在正方体$ABCD-A_1B_1C_1D_1$中，求证：
+\begin{enumerate}
+    \item $B_1D\bot \text{平面}A_1BC_1$；
+    \item $B_1D$与平面$A_1BC_1$的交点$H$是$\bigtriangleup A_1BC_1$的重心。
+\end{enumerate}
+\end{example}
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[style={x={(-145:0.5)},y={(1cm,0)},z={(0,1cm)}}, line join=round, scale=2]
+\pgfmathparse{0.6/2.5}
+\mydrawcube[1]{A}{B}{C}{D}{A_1}{B_1}{C_1}{D_1}
+\coordinate[label=right:{$E$}] (E) at ($(B)!0.5!(C_1)$);
+\draw[thick,blue] (A_1)--(C_1)--(B)--(A_1);
+\draw[dashed,blue,name path=l1] (D)--(B_1);
+\draw[dashed,red,name path=l2] (A_1)--(E);
+\path [name intersections={of=l1 and l2}] coordinate[label=left:$H$] (H) at (intersection-1);
+\fill (H) circle (\pgfmathresult mm);
+\fill[blue!50!white,opacity=0.5] (A_1)--(C_1)--(B)--cycle;
+\end{tikzpicture}
+\end{figure}
+
+解：
+
+（1）还是较为简单，大致思路如下。
+
+只需证明$B_1D\bot A_1B$且$B_1D\bot C_1B$且$B_1D\bot A_1C_1$，由于对称性，证明一个即可，可选$B_1D\bot A_1B$。不难证明$A_1B$平行于$B_1D$所在平面$ADC_1B_1$，证毕。
+
+（2）连接$A_1,H$并延长交于$E$，不难发现$\bigtriangleup A_1BC_1$是等边三角形，也即证明$E$平分$BC_1$或$A_1E\bot BC_1$或$\angle C_1A_1E=\angle BA_1E$，观察后发现证明$A_1E\bot BC_1$较为简单。
+\begin{align*}
+&\because BC_1\bot A_1D \\
+&\because BC_1\bot A_1B_1 \\
+&\therefore BC_1\bot A_1DEB_1 \\
+&\therefore BC_1\bot A_1E
+\end{align*}
+
+\begin{tcolorbox}
+本题略有复杂，也是典型的空间几何证明题。大致套路就是若要证明线线垂直就先证明线面垂直，要证明线面垂直就先证明线线垂直。
+\end{tcolorbox}
+
+~
+
+\begin{example}[综合运用13，难度：$\star $]
+如图，在三棱锥$P-ABC$中，$\angle ACB=90^\circ$，$PA\bot \text{底面}ABC$。
+\begin{enumerate}
+    \item 求证：$\text{平面}PAC\bot \text{平面}PBC$；
+    \item 若$AC=BC=PA$，$M$是$PB$的中点，求$AM$与平面$PBC$所成角的正切值。
+\end{enumerate}
+\end{example}
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[style={x={(-145:0.5)},y={(1cm,0)},z={(0,1cm)}}, line join=round, scale=2]
+\coordinate[label=above:       {$P$}] (P) at (0,0,1);
+\coordinate[label=left:        {$A$}] (A) at (0,0,0);
+\coordinate[label=right:       {$B$}] (B) at (0,1.414,0);
+\coordinate[label=below:       {$C$}] (C) at (0.707,0.707,0);
+\coordinate[label=above right: {$M$}] (M) at ($(P)!0.5!(B)$);
+\coordinate[label=above left:  {$N$}] (N) at ($(P)!0.5!(C)$);
+\draw[thick] (P)--(A)--(C)--(B)--(P)--(C) (A)--(N)--(M);
+\draw[dashed] (A)--(B);
+\draw[dashed,blue] (M)--(A);
+\fill[blue!50!white,opacity=0.5] (P)--(C)--(B)--cycle;
+\end{tikzpicture}
+\end{figure}
+
+解：
+
+（1）略。
+
+（2）关键在于找角，也即找到$A$在平面$PCB$上的垂足。从（1）已知$BC\bot PAC$，所以尽量考虑在$PC$上找一点，设$N$，使得$AN\bot PC$，于是$AN\bot PCB$，也即$N$就是垂足，题目要求的所成角即为$\angle NMA$。不难发现$\bigtriangleup PAC$为等腰直角三角形，于是易得：
+\[
+\tan \angle NMA=\frac{AN}{NM}=\frac{\sqrt{2}/2}{1/2}=\sqrt{2}
+\]
+
+\begin{tcolorbox}
+本题关键在于找直线与平面的成角，没有其他方法，只有根据定义找。
+\end{tcolorbox}
+
+~
+
+\begin{example}[综合运用14，难度：$\star $]
+如图，在四棱锥$P-ABCD$中，底面$ABCD$为正方形，侧面$PAD$是正三角形，$\text{侧面}PAD\bot \text{底面}ABCD$，$M$是$PD$的中点。
+\begin{enumerate}
+    \item 求证：$AM\bot \text{平面}PCD$；
+    \item 求侧面$PBC$与底面$ABCD$所成二面角的余弦值。
+\end{enumerate}
+\end{example}
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[style={x={(-35:0.5)},y={(1cm,0)},z={(0,1cm)}}, line join=round, scale=1.25]
+\coordinate[label=above:      {$P$}] (P) at (0,0,1.732);
+\coordinate[label=left:       {$A$}] (A) at (0,-1,0);
+\coordinate[label=below left: {$B$}] (B) at (2,-1,0);
+\coordinate[label=below right:{$C$}] (C) at (2,1,0);
+\coordinate[label=right:      {$D$}] (D) at (0,1,0);
+\coordinate[label=right:      {$M$}] (M) at ($(P)!0.5!(D)$);
+\coordinate[label=above left: {$N$}] (N) at ($(A)!0.5!(D)$);
+\coordinate[label=below:      {$Q$}] (Q) at ($(B)!0.5!(C)$);
+\draw[thick] (P)--(A)--(B)--(P)--(C)--(B);
+\draw[dashed] (P)--(D)--(A) (C)--(D);
+\draw[dashed,blue] (A)--(M);
+\draw[thick,red] (P)--(Q);
+\draw[dashed,red] (P)--(N)--(Q);
+\fill[pink!70!white,opacity=0.5] (A)--(D)--(C)--(B)--cycle;
+\fill[blue!50!white,opacity=0.5] (P)--(C)--(B)--cycle;
+\end{tikzpicture}
+\end{figure}
+
+解：
+
+（1）略。
+
+（2）关键在于找二面角，也即在$BC$找一点$Q$，能够方便地作垂线。显然用$P$找$Q$较为方便，不难发现$\bigtriangleup PBC$为等腰三角形，于是很自然$Q$取$BC$中点，再取$AD$中点$N$。不难证明，$\angle NQP$就是要求的二面角，而且$\angle PNQ$是直角，于是：
+\[
+\cos \angle NQP=\frac{NQ}{PQ}=\frac{1}{\sqrt{7}/2}
+\]
+
+\begin{tcolorbox}
+本题关键在于找二面角，同上题没有其他方法，只有根据定义找。
+\end{tcolorbox}
+
+
+
+

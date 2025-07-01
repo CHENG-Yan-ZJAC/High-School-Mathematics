@@ -1,0 +1,304 @@
+\section{平面向量的应用}
+
+本节要点：
+\begin{itemize}
+    \item 熟练掌握余弦定理；
+    \item 熟练掌握正弦定理。
+\end{itemize}
+
+\begin{align*}
+&\cos A=\frac{b^2+c^2-a^2}{2bc} \\
+&\frac{a}{\sin A}=\frac{b}{\sin B}=\frac{c}{\sin C}
+\end{align*}
+
+~
+
+\begin{example}[复习巩固3，难度：$\star $]
+用向量法证明：直径所对的圆周角是直角。
+\end{example}
+
+解：
+
+如下设置各变量。
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[line join=round, scale=1.25]
+\mydrawxy{-1.2}{2}{-1.2}{1.2}
+\draw[thick] (0,0) circle(1);
+\coordinate                                              (O) at (0,0);
+\coordinate[label=above:      {$A\left( x,y \right) $}]  (A) at (-0.67,0.74);
+\coordinate[label=left:       {$B\left( -r,0 \right) $}] (B) at (-1,0);
+\coordinate[label=right:      {$C\left( r,0 \right) $}]  (C) at (1,0);
+\coordinate[label=above left: {$\boldsymbol{c}$}]        (c) at ($(A)!0.5!(B)$);
+\coordinate[label=above right:{$\boldsymbol{b}$}]        (b) at ($(A)!0.5!(C)$);
+\draw[thick,-stealth] (A)--(B);
+\draw[thick,-stealth] (A)--(C);
+\draw[thick,-stealth] (B)--(C);
+\end{tikzpicture}
+\end{figure}
+
+\begin{align*}
+&\because \begin{cases}
+	\boldsymbol{c}=\left( -r-x,-y \right)\\
+	\boldsymbol{b}=\left( r-x,-y \right)\\
+	x^2+y^2=r^2\\
+\end{cases} \\
+&\therefore \boldsymbol{c}\cdot \boldsymbol{b}=\left( -r-x \right) \cdot \left( r-x \right) +\left( -y \right) ^2=\left( x^2-r^2 \right) +y^2=0
+\end{align*}
+
+\begin{tcolorbox}
+本题就是考察垂直的向量表示，也即内积为0的几何意义，较为简单。
+\end{tcolorbox}
+
+~
+
+\begin{example}[综合运用15，难度：$\star $]
+$\bigtriangleup ABC$的三边分别为$a,b,c$，边$BC$，$CA$，$AB$上的中线分别记为$m_a,m_b,m_c$，利用余弦定理证明
+\begin{align*}
+&m_a=\frac{1}{2}\sqrt{2\left( b^2+c^2 \right) -a^2} \\
+&m_b=\frac{1}{2}\sqrt{2\left( a^2+c^2 \right) -b^2} \\
+&m_c=\frac{1}{2}\sqrt{2\left( a^2+b^2 \right) -c^2}
+\end{align*}
+\end{example}
+
+解一，用余弦定理证明：
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[line join=round, scale=0.75]
+\coordinate[label=above:{$A$}]   (A)  at (0.5,2);
+\coordinate[label=left: {$B$}]   (B)  at (-2,0);
+\coordinate[label=right:{$C$}]   (C)  at (2,0);
+\coordinate[label=below:{$M$}]   (M)  at ($(B)!0.5!(C)$);
+\coordinate[label=right:{$b$}]   (b)  at ($(A)!0.5!(C)$);
+\coordinate[label=left: {$c$}]   (c)  at ($(A)!0.5!(B)$);
+\coordinate[label=below:{$a/2$}] (a1) at ($(M)!0.5!(B)$);
+\coordinate[label=below:{$a/2$}] (a2) at ($(M)!0.5!(C)$);
+\coordinate[label=left: {$m_a$}] (ma) at ($(M)!0.5!(A)$);
+\draw[thick] (A)--(B)--(C)--(A);
+\draw[thick,blue] (A)--(M);
+\pic["$\alpha $",draw,angle radius=0.3cm,angle eccentricity=1.5] {angle=A--M--B};
+\pic["$\beta $",draw,angle radius=0.4cm,angle eccentricity=1.5] {angle=C--M--A};
+\end{tikzpicture}
+\end{figure}
+
+如上图，从$\sin \left( \alpha +\beta \right) =\sin \alpha \cos \beta +\cos \alpha \sin \beta =0$开始。
+
+分别使用余弦定理和正弦定理可得：
+\[
+\frac{c}{m_a}\sin B\cdot \frac{\frac{a^2}{4}+{m_a}^2-b^2}{2\cdot \frac{a}{2}\cdot m_a}+\frac{\frac{a^2}{4}+{m_a}^2-c^2}{2\cdot \frac{a}{2}\cdot m_a}\cdot \frac{b}{m_a}\sin C=0
+\]
+然后对$\sin B,\sin C$使用正弦定理可得：
+\[
+\frac{c}{m_a}\cdot \frac{\frac{a^2}{4}+{m_a}^2-b^2}{2\cdot \frac{a}{2}\cdot m_a}+\frac{\frac{a^2}{4}+{m_a}^2-c^2}{2\cdot \frac{a}{2}\cdot m_a}\cdot \frac{b}{m_a}\frac{c}{b}=0
+\]
+化简：
+\[
+\frac{a^2}{2}+2{m_a}^2-b^2-c^2=0
+\]
+略。
+
+\begin{tcolorbox}
+本题在于计算量非常大，先要找到合适的角，反反复复找角的过程计算量非常大。
+\end{tcolorbox}
+
+解二：
+
+若不限制余弦定理，参考P39的例2，秒答，即证明：
+\[
+\left( 2m_a \right) ^2+a^2=2\left( b^2+c^2 \right)
+\]
+
+~
+
+\begin{example}[综合运用17，难度：$\star \star $]
+证明：设三角形的外接圆的半径是$R$，则$a=2R\sin A,b=2R\sin B,c=2R\sin C$。
+\end{example}
+
+解：
+
+利用圆心角和圆周角的关系$\angle BOC=2\angle BAC$，加之$\cos 2A=1-\sin ^2A$，可得：
+\begin{align*}
+&\frac{R^2+R^2-a^2}{2RR}=1-2\sin ^2A \\
+&1-\frac{a^2}{2R^2}=1-2\sin ^2A
+\end{align*}
+后略。
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[line join=round, scale=1.25]
+\draw[thick] (0,0) circle(1);
+\coordinate                    (O) at (0,0);
+\coordinate[label=above:{$A$}] (A) at (0.53,0.85);
+\coordinate[label=left: {$B$}] (B) at (-0.72,-0.7);
+\coordinate[label=right:{$C$}] (C) at (0.88,-0.47);
+\draw[thick] (A)--(B)--(C)--(A);
+\draw[thick,dashed,red] (B)--(O)--(C);
+\pic["$2A$",draw,angle radius=0.3cm,angle eccentricity=1.5] {angle=B--O--C};
+\end{tikzpicture}
+\end{figure}
+
+\begin{tcolorbox}
+本题需要结合几何，不能纯靠向量知识，需要一定联想力。
+\end{tcolorbox}
+
+~
+
+\begin{example}[拓广探索19，难度：$\star $]
+如图，在平行四边形$ABCD$中，点$E,F$分别是$AD,DC$边的中点，$BE,BF$分别与$AC$交于$R,T$两点，你能发现$AR,RT,TC$之间的关系吗？用向量方法证明你的结论。
+\end{example}
+
+解：
+
+初看似乎三条线段等长，最直观的方法就是建立如下坐标系，求$R$点的坐标。
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[line join=round, scale=1.25]
+\mydrawxy{-0.5}{3}{-0.5}{1.5}
+\coordinate[label=below:      {$A$}]     (A) at (0,0);
+\coordinate[label=below:      {$B\left( c,0 \right) $}]     (B) at (2,0);
+\coordinate[label=above left: {$D\left( 2a,2b \right) $}]   (D) at (0.5,1);
+\coordinate[label=above right:{$C\left( 2a+c,2b \right) $}] (C) at ($(B)+(D)$);
+\coordinate[label=left:       {$E\left( a,b \right) $}]     (E) at ($(A)!0.5!(D)$);
+\coordinate[label=above:      {$F$}]                        (F) at ($(D)!0.5!(C)$);
+\draw[thick] (A)--(B)--(C)--(D)--(A);
+\draw[thick,blue,name path=l1] (A)--(C);
+\draw[thick,blue,name path=l2] (B)--(E);
+\draw[thick,blue,name path=l3] (B)--(F);
+\path [name intersections={of=l1 and l2}] coordinate[label=above:$R$] (R) at (intersection-1);
+\path [name intersections={of=l1 and l3}] coordinate[label=above:$T$] (T) at (intersection-1);
+\end{tikzpicture}
+\end{figure}
+
+易得$EB$和$AC$的直线方程：
+\begin{align*}
+&y-0=\frac{b}{a-c}\cdot \left( x-c \right) \\
+&y=\frac{2b}{2a+c}\cdot x
+\end{align*}
+联立两方程求得$R$点坐标：
+\[
+R=\left( x,y \right) =\left( \frac{2a+c}{3},\frac{2b}{3} \right)
+\]
+确实有$AC=3AR$。
+
+$TC$长度的讨论可以将$C$作为原点建立坐标系，略。
+
+\begin{tcolorbox}
+对于定量问题，放到坐标系下讨论，除了计算量大点，没啥缺点。
+\end{tcolorbox}
+
+~
+
+\begin{example}[拓广探索20，难度：$\star $]
+已知$\bigtriangleup ABC$的三个角$A,B,C$的对边分别为$a,b,c$，设$p=\frac{1}{2}\left( a+b+c \right) $，求证：
+
+（1）三角形的面积$S=\sqrt{p\left( p-a \right) \left( p-b \right) \left( p-c \right)}$；
+
+（2）若$r$为三角形的内切圆半径，则
+\[
+r=\sqrt{\frac{\left( p-a \right) \left( p-b \right) \left( p-c \right)}{p}}
+\]
+
+（3）把$BC,CA,AB$上的高分别记为$h_a,h_b,h_c$，则
+\begin{align*}
+&h_a=\frac{2}{a}\sqrt{p\left( p-a \right) \left( p-b \right) \left( p-c \right)} \\
+&h_b=\frac{2}{b}\sqrt{p\left( p-a \right) \left( p-b \right) \left( p-c \right)} \\
+&h_c=\frac{2}{c}\sqrt{p\left( p-a \right) \left( p-b \right) \left( p-c \right)}
+\end{align*}
+\end{example}
+
+解：
+
+（1）三角形面积
+\begin{align*}
+S&=\frac{1}{2}bc\sin A=\frac{1}{2}bc\sqrt{1-\cos ^2A} \\
+&=\frac{1}{2}bc\sqrt{1-\left( \frac{b^2+c^2-a^2}{2bc} \right) ^2} \\
+&=\frac{1}{4}\sqrt{a^4-b^4-c^4+2a^2b^2+2a^2c^2+2b^2c^2}
+\end{align*}
+而$\sqrt{p\left( p-a \right) \left( p-b \right) \left( p-c \right)}$展开后相等，证毕。
+
+（2）以内切圆圆心为基点，将三角形分成3部分，用下面的思路解，略
+\[
+S_{\bigtriangleup ABC}=S_{\bigtriangleup ABO}+S_{\bigtriangleup AOC}+S_{\bigtriangleup OBC}
+\]
+
+\begin{tcolorbox}
+本题计算量略大，方法还是很直观的。
+\end{tcolorbox}
+
+~
+
+\begin{example}[拓广探索23，难度：$\star \star $]
+已知$a,b,c$分别为$\bigtriangleup ABC$三个内角$A,B,C$的对边，且
+\[
+a\cos C+\sqrt{3}a\sin C-b-c=0
+\]
+\begin{enumerate}
+    \item 求$A$；
+    \item 若$a=2$，且$\bigtriangleup ABC$的面积为$\sqrt{3}$，求$b,c$。
+\end{enumerate}
+\end{example}
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[line join=round, scale=0.75]
+\coordinate[label=above:     {$A$}]  (A)  at (0.5,2);
+\coordinate[label=left:      {$B$}]  (B)  at (-2,0);
+\coordinate[label=right:     {$C$}]  (C)  at (2,0);
+\coordinate[label=above left:{$c$}]  (c)  at ($(B)!0.5!(A)$);
+\coordinate[label=left:      {$b$}]  (b)  at ($(C)!0.5!(A)$);
+\coordinate[label=below:     {$a$}]  (a)  at ($(B)!0.5!(C)$);
+\coordinate[label=right:     {$A'$}] (A') at ($(B)!1.8!(A)$);
+\coordinate[label=above left:{$b$}]  (b') at ($(A)!0.5!(A')$);
+\draw[thick] (A)--(B)--(C)--(A);
+\draw[thick,dashed,red] (A)--(A')--(C);
+\pic["$\pi -A$",draw,angle radius=0.4cm,angle eccentricity=2.5] {angle=C--A--A'};
+\pic["$A/2$",draw,angle radius=0.4cm,angle eccentricity=1.5] {angle=A--A'--C};
+\pic["$A/2$",draw,angle radius=0.4cm,angle eccentricity=1.5] {angle=A'--C--A};
+\end{tikzpicture}
+\end{figure}
+
+解：
+
+（1）分析已知等式：
+\begin{align*}
+&2a\left( \frac{1}{2}\cos C+\frac{\sqrt{3}}{2}\sin C \right) =b+c \\
+&2a\sin \left( C+\frac{\pi}{6} \right) =b+c
+\end{align*}
+出现$\frac{b+c}{a}$，于是构建如上三角形，对$\bigtriangleup A'BC$用正弦定理，并结合已知等式可得：
+\begin{align*}
+&\because \frac{c+b}{\sin \left( C+\frac{A}{2} \right)}=\frac{a}{\sin \frac{A}{2}} \\
+&\therefore \sin \left( C+\frac{A}{2} \right) =\frac{c+b}{a}\sin \frac{A}{2} \\
+&\therefore \sin C\cos \frac{A}{2}+\cos C\sin \frac{A}{2}=\frac{c+b}{a}\sin \frac{A}{2} \\
+&\therefore \left( a\cot \frac{A}{2} \right) \sin C+a\cos C=b+c \\
+&\therefore \cot \frac{A}{2}=\sqrt{3} \\
+&\therefore A=\frac{\pi}{3}
+\end{align*}
+
+（2）有了$A$，结合三角形公式和余弦定理可得方程组：
+\begin{align*}
+&\because S=\frac{1}{2}\cdot bc\cdot \sin A=\sqrt{3} \\
+&\because \cos A=\frac{b^2+c^2-a^2}{2bc} \\
+&\therefore b=c=2
+\end{align*}
+
+解二：
+
+从已知等式直接入手：
+\begin{align*}
+&\because a\cos C+\sqrt{3}a\sin C-b-c=0 \\
+&\therefore a\frac{a^2+b^2-c^2}{2ab}+\sqrt{3}c\sin A=b+c \\
+&\therefore \sin A=\frac{2b\left( b+c \right) -\left( a^2+b^2-c^2 \right)}{2\sqrt{3}bc}=\frac{1}{\sqrt{3}}\cdot \left( \cos A+1 \right) \\
+&\because \sin ^2A+\cos ^2A=1 \\
+&\therefore A=\frac{\pi}{3}
+\end{align*}
+
+\begin{tcolorbox}
+此题有一定难度，解一需要细心观察，解二计算量大，没啥说的。
+\end{tcolorbox}
+
+
+
+

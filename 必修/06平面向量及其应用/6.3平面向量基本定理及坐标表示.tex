@@ -1,0 +1,228 @@
+\section{平面向量基本定理及坐标表示}
+
+本节要点：
+\begin{itemize}
+    \item 理解向量的坐标表示；
+    \item 熟练掌握向量运算的坐标表示。
+\end{itemize}
+
+\begin{tcolorbox}
+本节将向量分解为实数的有序组合，并定义运算法则。
+\end{tcolorbox}
+
+本节的概念较为复杂，新概念多，新写法多，再次作梳理总结。
+
+首先，高中阶段讨论的向量是二维向量，几何上表示二维平面的有向线段，在{\it xy}坐标系中，原点和任意点也能构成的有向线段。加之“平面向量定理”，我们可以证明二维平面和{\it xy}坐标系是同构的。所以，以下向量的表示方法是等价的：
+\begin{itemize}
+    \item $\overrightarrow{AB}$：表示二维空间的有向线段；
+    \item $x\boldsymbol{i}+y\boldsymbol{j}$：表示{\it xy}坐标系中的有向线段；
+    \item $\left( x,y \right) $：表示{\it xy}坐标系中的点。
+\end{itemize}
+综合表示如下，注意，这里的=表示含义等价，而非代数中的等量：
+\[
+\boldsymbol{a}=\overrightarrow{AB}=x\boldsymbol{i}+y\boldsymbol{j}=\left( x,y \right)
+\]
+仔细研读本节所有例题，理解上述关系式。
+
+于是我们不难得到：
+\begin{align*}
+&\boldsymbol{a}+\boldsymbol{b}=\overrightarrow{AB}=\left( x_{\boldsymbol{a}}+x_{\boldsymbol{b}} \right) \boldsymbol{i}+\left( y_{\boldsymbol{a}}+y_{\boldsymbol{b}} \right) \boldsymbol{j}=\left( x_{\boldsymbol{a}}+x_{\boldsymbol{b}},y_{\boldsymbol{a}}+y_{\boldsymbol{b}} \right) \\
+&\lambda \boldsymbol{a}=\lambda x_{\boldsymbol{a}}\boldsymbol{i}+\lambda y_{\boldsymbol{a}}\boldsymbol{j}=\left( \lambda x_{\boldsymbol{a}},\lambda y_{\boldsymbol{a}} \right) \\
+&\boldsymbol{a}\cdot \boldsymbol{b}=\left( x_{\boldsymbol{a}}\boldsymbol{i}+y_{\boldsymbol{a}}\boldsymbol{j} \right) \cdot \left( x_{\boldsymbol{b}}\boldsymbol{i}+y_{\boldsymbol{b}}\boldsymbol{j} \right) =x_{\boldsymbol{a}}\cdot x_{\boldsymbol{b}}+y_{\boldsymbol{a}}\cdot y_{\boldsymbol{b}}=\left| \boldsymbol{a} \right|\left| \boldsymbol{b} \right|\cos \alpha
+\end{align*}
+
+\begin{tcolorbox}
+本节将向量用一个有序实数对表示，并根据之前的定义完善了向量的运算，使得向量彻底关联了代数和几何。
+\end{tcolorbox}
+
+\begin{figure}[h]
+\centering
+\begin{minipage}{.49\textwidth}
+\centering
+\begin{tikzpicture}[line join=round, scale=1]
+\coordinate (x1) at (-1,0);
+\coordinate (y1) at (-0.5,-1);
+\coordinate[label=right:{$x$}] (x2) at (1,0);
+\coordinate[label=above:{$y$}] (y2) at (0.5,1);
+\draw[->,red] (x1)--(x2);
+\draw[->,red] (y1)--(y2);
+\end{tikzpicture}
+\end{minipage}
+\begin{minipage}{.49\textwidth}
+\centering
+\begin{tikzpicture}[line join=round, scale=1]
+\mydrawxy{-1}{1}{-1}{1}
+\end{tikzpicture}
+\end{minipage}
+\end{figure}
+
+还有一个问题需要注意，教材中未提及。坐标系可以多种多样，只要两个坐标轴不重合即可构建二维坐标系，如上左图，若约束{\it xy}垂直，就构成正交坐标系，也即我们熟知的笛卡尔坐标系，如上右图。
+
+之前在6.1中我提及，模是向量的固有属性，所以要计算$\boldsymbol{a}=\left( x,y \right) $的模，这里的$x,y$必须是正交坐标系下的坐标！高中教材不对模下一个明确的定义，这部分在《线性代数》中定义，所以这里只要知道模的计算需要放在直角坐标系下即可。
+
+\begin{tcolorbox}
+高中阶段的向量是简化版的线性代数，XML。
+\end{tcolorbox}
+
+~
+
+\begin{example}[复习巩固9，难度：$\star $]
+已知$\left| \boldsymbol{a} \right|=3,\boldsymbol{b}=\left( 1,2 \right) $，且$\boldsymbol{a}\parallel \boldsymbol{b}$，求$\boldsymbol{a}$的坐标。
+\end{example}
+
+解：
+
+令$\boldsymbol{a}=\left( x,y \right) $，则有：
+\begin{align*}
+&x^2+y^2=9 \\
+&\left( x,y \right) =\lambda \left( 1,2 \right)
+\end{align*}
+第2个式子表示$\left( x,y \right) =\lambda \left( 1,2 \right) $，不难解得：
+\[
+\boldsymbol{a}=\pm \left( \frac{3}{\sqrt{5}},\frac{6}{\sqrt{5}} \right)
+\]
+
+\begin{tcolorbox}
+本题考察向量的性质，并不难。
+\end{tcolorbox}
+
+~
+
+\begin{example}[复习巩固10，难度：$\star $]
+已知$\boldsymbol{a}=\left( 4,2 \right) $，求与$\boldsymbol{a}$垂直的单位向量的坐标。
+\end{example}
+
+解：
+
+与一个向量垂直，约束了其方向，单位向量，约束了其大小，不难发现该题必然得到两个方程：
+\begin{align*}
+&\boldsymbol{a}\cdot \boldsymbol{b}=0 \\
+&\left| \boldsymbol{b} \right|=1
+\end{align*}
+令$\boldsymbol{b}=\left( x,y \right) $可求解，略。
+
+\begin{tcolorbox}
+本题依然考察向量的性质，并不难。
+\end{tcolorbox}
+
+~
+
+\begin{example}[综合运用14，难度：$\star $]
+求证：以$A\left( 1,0 \right) $，$B\left( 5,-2 \right) $，$C\left( 8,4 \right) $，$D\left( 4,6 \right) $为顶点的四边形是一个矩形。
+\end{example}
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[line join=round, scale=0.25]
+\mydrawxy{-3}{10}{-3}{8}
+\coordinate[label=left: {$A$}]              (A) at (1,0);
+\coordinate[label=right:{$B$}]              (B) at (5,-2);
+\coordinate[label=right:{$C$}]              (C) at (8,4);
+\coordinate[label=left: {$D$}]              (D) at (4,6);
+\coordinate[label=below:{$\boldsymbol{a}$}] (a) at ($(A)!0.5!(B)$);
+\coordinate[label=right:{$\boldsymbol{b}$}] (b) at ($(B)!0.5!(C)$);
+\coordinate[label=above:{$\boldsymbol{c}$}] (c) at ($(C)!0.5!(D)$);
+\coordinate[label=left: {$\boldsymbol{d}$}] (d) at ($(D)!0.5!(A)$);
+\draw[thick,-stealth] (A)--(B);
+\draw[thick,-stealth] (B)--(C);
+\draw[thick,-stealth] (C)--(D);
+\draw[thick,-stealth] (D)--(A);
+\end{tikzpicture}
+\end{figure}
+
+解：
+
+从矩形的定义出发，有一个角是直角的平行四边形。
+可令向量$\boldsymbol{a},\boldsymbol{b},\boldsymbol{c},\boldsymbol{d}$如上图，不难发现，只需证明：
+\begin{align*}
+&\boldsymbol{a}=\lambda \boldsymbol{c} \\
+&\boldsymbol{a}\cdot \boldsymbol{b}=0
+\end{align*}
+略。
+
+\begin{tcolorbox}
+本题考察向量运算的几何意义，并不难。
+\end{tcolorbox}
+
+~
+
+\begin{example}[拓广探索15，难度：$\star $]
+如图，$Ox,Oy$是平面内相交成60°角的两条数轴，$\boldsymbol{e}_1,\boldsymbol{e}_2$分别是与{\it x}轴、{\it y}轴正方向通向的单位向量。若向量$\overrightarrow{OP}=x\boldsymbol{e}_1+y\boldsymbol{e}_2$，则把有序数对$\left( x,y \right) $叫做向量$\overrightarrow{OP}$在坐标系$Oxy$中的坐标。设$\overrightarrow{OP}=3\boldsymbol{e}_1+2\boldsymbol{e}_2$，
+\begin{enumerate}
+    \item 计算$\left| \overrightarrow{OP} \right|$；
+    \item 根据平面向量基本定理判断，本题中对向量坐标的规定是否合理。
+\end{enumerate}
+\end{example}
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[line join=round, scale=0.75]
+\coordinate[label=below left:{$O$}]           (O)  at (0,0);
+\coordinate[label=below:{$\boldsymbol{e}_1$}] (E1) at (1,0);
+\coordinate[label=left: {$\boldsymbol{e}_2$}] (E2) at (0.5,0.866);
+\coordinate[label=right:{$x$}]                (x)  at ($(O)!3.5!(E1)$);
+\coordinate[label=above:{$y$}]                (y)  at ($(O)!2.5!(E2)$);
+\draw[->,red] (O)--(x);
+\draw[->,red] (O)--(y);
+\draw[thick,-stealth] (O)--(E1);
+\draw[thick,-stealth] (O)--(E2);
+\coordinate                    (Px) at ($(O)!3!(E1)$);
+\coordinate                    (Py) at ($(O)!2!(E2)$);
+\coordinate[label=right:{$P$}] (P)  at ($(Px)+(Py)$);
+\draw[thick,-stealth] (O)--(P);
+\draw[dashed] (Py)--(P)--(Px);
+\end{tikzpicture}
+\end{figure}
+
+解：
+
+（1）当前坐标系不是正交坐标系，所以$\left| \overrightarrow{OP} \right|\ne 3^2+2^2$，而是需要转换到正交坐标系。
+\begin{align*}
+&\because \begin{cases}
+	\boldsymbol{e}_1=1\cdot \boldsymbol{i}+0\cdot \boldsymbol{j}\\
+	\boldsymbol{e}_2=\frac{1}{2}\cdot \boldsymbol{i}+\frac{\sqrt{3}}{2}\cdot \boldsymbol{j}\\
+\end{cases} \\
+&\therefore \overrightarrow{OP}=3\boldsymbol{e}_1+2\boldsymbol{e}_2=3\left( 1\cdot \boldsymbol{i}+0\cdot \boldsymbol{j} \right) +2\left( \frac{1}{2}\cdot \boldsymbol{i}+\frac{\sqrt{3}}{2}\cdot \boldsymbol{j} \right) =4\boldsymbol{i}+\sqrt{3}\boldsymbol{j} \\
+&\therefore \left| \overrightarrow{OP} \right|=\sqrt{4^2+\sqrt{3}^2}
+\end{align*}
+
+（2）合理，不展开，XML。
+
+\begin{tcolorbox}
+本题考察向量的模的定义，由于教材缺乏明确定义，所以会有些迷惑。
+\end{tcolorbox}
+
+~
+
+\begin{example}[拓广探索16，难度：$\star \star $]
+用向量方法证明：对于任意的$a,b,c,d\in \mathbb{R} $，恒有不等式
+\[
+\left( ac+bd \right) ^2\leqslant \left( a^2+b^2 \right) \left( c^2+d^2 \right)
+\]
+\end{example}
+
+解：
+
+令$\boldsymbol{a}=\left( a,b \right) ,\boldsymbol{b}=\left( c,d \right) $则，
+\begin{align*}
+&\left( a^2+b^2 \right) \left( c^2+d^2 \right) =\left| \boldsymbol{a} \right|^2\cdot \left| \boldsymbol{b} \right|^2 \\
+&\left( \boldsymbol{a}\cdot \boldsymbol{b} \right) ^2=\left( ac+bd \right) ^2
+\end{align*}
+于是：
+\begin{align*}
+&\because \cos \alpha =\frac{\boldsymbol{a}\cdot \boldsymbol{b}}{\left| \boldsymbol{a} \right|\cdot \left| \boldsymbol{b} \right|}\in \left[ -1,1 \right] \\
+&\therefore \frac{\left( \boldsymbol{a}\cdot \boldsymbol{b} \right) ^2}{\left| \boldsymbol{a} \right|^2\cdot \left| \boldsymbol{b} \right|^2}\in \left[ 0,1 \right]
+\end{align*}
+当且仅当$\boldsymbol{a},\boldsymbol{b}$平行时等号成立。
+
+\begin{tcolorbox}
+本题需要一些想象力，如果没有提示用向量方法，还是有些难度的。
+\end{tcolorbox}
+
+\begin{tcolorbox}
+这里引申出一个话题。我们在规定向量的坐标$\boldsymbol{a}=\left( x,y \right) $时，并没有对两个坐标量有所约束，更没有要求坐标系必须是直角坐标。加之向量运算的底层规则还是建立在实数的运算法则上，所以本题可以用向量的方法。
+\end{tcolorbox}
+
+
+
+

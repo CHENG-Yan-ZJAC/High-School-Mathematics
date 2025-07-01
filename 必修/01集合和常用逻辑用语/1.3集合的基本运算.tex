@@ -1,0 +1,132 @@
+\section{集合的基本运算}
+
+本节要点：
+\begin{itemize}
+    \item 熟练掌握集合的运算法则。
+\end{itemize}
+
+~
+
+集合的运算并没有什么难度。教材介绍了3中运算，交并补，我们可以做如下精确的定义。
+
+\begin{definition}[集合的运算]
+设三个集合$A,B,C$，若$A$中的任一元素同时属于$C$，且$B$中的任一元素也同时属于$C$，则称{\bf $C$为$A,B$的并集}，记作$A\cup B$，即：
+\[
+A\cup B:=\left\{ a \middle| a\in A\text{或}a\in B \right\}
+\]
+若$C$中的任一元素同时属于$A$和$B$，则称{\bf $C$为$A,B$的交集}，记作$A\cap B$，即：
+\[
+A\cap B:=\left\{ a \middle| a\in A\text{且}a\in B \right\}
+\]
+若我们将$A$中的同时属于$B$的元素去除，得到的集合称为{\bf $A$和$B$的差}，也称为{\bf $B$关于$A$的补集}，记作$A\cap \bar{B}$，即：
+\[
+A\cap \bar{B}:=\left\{ a \middle| a\in A\text{且}a\notin B \right\}
+\]
+\end{definition}
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[line join=round, scale=0.5]
+% A in B
+\coordinate (O) at (-5,1.6);
+\draw[thick] ($(O)+(-2,-1)$)--($(O)+(2,-1)$)--($(O)+(2,1)$)--($(O)+(-2,1)$)--($(O)+(-2,-1)$);
+\coordinate[label=above:{$A\subset B$}] (t) at ($($(O)+(-2,1)$)!0.5!($(O)+(2,1)$)$);
+\draw[thick] ($(O)+(0,0)$) ellipse (1.5 and 0.8);
+\draw[thick] ($(O)+(0,0)$) circle (0.5);
+\coordinate[label=center:{$A$}] (a) at ($(O)+(0,0)$);
+\coordinate[label=center:{$B$}] (b) at ($(O)+(1,0)$);
+% A or B
+\coordinate (O) at (0,1.6);
+\draw[thick] ($(O)+(-2,-1)$)--($(O)+(2,-1)$)--($(O)+(2,1)$)--($(O)+(-2,1)$)--($(O)+(-2,-1)$);
+\coordinate[label=above:{$A\cup B$}] (t) at ($($(O)+(-2,1)$)!0.5!($(O)+(2,1)$)$);
+\fill[black!30!white] ($(O)+(-0.5,0)$) circle (0.8);
+\fill[black!30!white] ($(O)+(0.5,0)$)  circle (0.8);
+\draw[thick] ($(O)+(-0.5,0)$) circle (0.8);
+\draw[thick] ($(O)+(0.5,0)$)  circle (0.8);
+\coordinate[label=center:{$A$}] (a) at ($(O)+(-0.7,0)$);
+\coordinate[label=center:{$B$}] (b) at ($(O)+(0.7,0)$);
+% A and B
+\coordinate (O) at (5,1.6);
+\draw[thick] ($(O)+(-2,-1)$)--($(O)+(2,-1)$)--($(O)+(2,1)$)--($(O)+(-2,1)$)--($(O)+(-2,-1)$);
+\coordinate[label=above:{$A\cap B$}] (t) at ($($(O)+(-2,1)$)!0.5!($(O)+(2,1)$)$);
+\begin{scope}
+\clip[draw] ($(O)+(-0.5,0)$) circle (0.8);
+\fill[black!30!white] ($(O)+(0.5,0)$) circle (0.8);
+\end{scope}
+\draw[thick] ($(O)+(-0.5,0)$) circle (0.8);
+\draw[thick] ($(O)+(0.5,0)$)  circle (0.8);
+\coordinate[label=center:{$A$}] (a) at ($(O)+(-0.7,0)$);
+\coordinate[label=center:{$B$}] (b) at ($(O)+(0.7,0)$);
+% A - B
+\coordinate (O) at (-5,-1.6);
+\draw[thick] ($(O)+(-2,-1)$)--($(O)+(2,-1)$)--($(O)+(2,1)$)--($(O)+(-2,1)$)--($(O)+(-2,-1)$);
+\coordinate[label=above:{$A-B=A\cap \bar{B}$}] (t) at ($($(O)+(-2,1)$)!0.5!($(O)+(2,1)$)$);
+\fill[black!30!white] ($(O)+(-0.5,0)$) circle (0.8);
+\draw[thick,fill=white] ($(O)+(0.5,0)$) circle (0.8);
+\draw[thick] ($(O)+(-0.5,0)$) circle (0.8);
+\coordinate[label=center:{$A$}] (a) at ($(O)+(-0.7,0)$);
+\coordinate[label=center:{$B$}] (b) at ($(O)+(0.7,0)$);
+% A and B is null
+\coordinate (O) at (0,-1.6);
+\draw[thick] ($(O)+(-2,-1)$)--($(O)+(2,-1)$)--($(O)+(2,1)$)--($(O)+(-2,1)$)--($(O)+(-2,-1)$);
+\coordinate[label=above:{$A\cap B=\oslash $}] (t) at ($($(O)+(-2,1)$)!0.5!($(O)+(2,1)$)$);
+\draw[thick] ($(O)+(-0.9,0)$) circle (0.8);
+\draw[thick] ($(O)+(0.9,0)$)  circle (0.8);
+\coordinate[label=center:{$A$}] (a) at ($(O)+(-0.9,0)$);
+\coordinate[label=center:{$B$}] (b) at ($(O)+(0.9,0)$);
+% not A
+\coordinate (O) at (5,-1.6);
+\fill[black!30!white] ($(O)+(-2,-1)$)--($(O)+(2,-1)$)--($(O)+(2,1)$)--($(O)+(-2,1)$)--cycle;
+\draw[thick] ($(O)+(-2,-1)$)--($(O)+(2,-1)$)--($(O)+(2,1)$)--($(O)+(-2,1)$)--($(O)+(-2,-1)$);
+\coordinate[label=above:{$\bar{A}$}] (t) at ($($(O)+(-2,1)$)!0.5!($(O)+(2,1)$)$);
+\draw[thick,fill=white] ($(O)+(0,0)$) circle (0.8);
+\coordinate[label=center:{$A$}] (a) at ($(O)+(0,0)$);
+\end{tikzpicture}
+\end{figure}
+
+集合的运算除逻辑符号外，还可使用算术符号描述。
+
+\begin{table}[h]
+\centering
+\begin{tabular}{ccc}
+    \toprule
+    运算 & 逻辑符号 & 算术符号\\
+    \midrule
+    并 & $A\cup B$ & $A+B$\\
+    交 & $A\cap B$ & $AB$\\
+    差 & $A\cap \bar{B}$ & $A-B$\\
+    \bottomrule
+\end{tabular}
+\end{table}
+
+\begin{tcolorbox}
+集合的运算使得我们可以用一些简单集合的组合描述一个复杂集合。但要注意，这里的运算是逻辑运算，而非算术运算。
+\end{tcolorbox}
+
+集合的运算法则：
+\begin{itemize}
+    \item {\bf 交换律}：$AB=BA$
+    \item {\bf 结合律}：$\left( A+B \right) +C=A+\left( B+C \right) ,\left( AB \right) C=A\left( BC \right) $
+    \item {\bf 分配律}：$\left( A+B \right) C=\left( AC \right) +\left( AB \right) ,\left( AB \right) +C=\left( A+C \right) \left( B+C \right) $
+    \item {\bf 德摩根律}：$\overline{A+B}=\bar{A}\bar{B},\overline{AB}=\bar{A}+\bar{B}$
+\end{itemize}
+
+~
+
+其他常用运算公式：
+\begin{align*}
+& AB\subset A\subset A+B,\qquad AB\subset B\subset A+B \\
+& AA=A \\
+& A+A=A \\
+& A+\bar{A}=\varOmega \\
+& A-B=A\bar{B}=A-AB \\
+& \left( A-B \right) +B=A+B
+\end{align*}
+
+\begin{tcolorbox}
+上述运算法则和公式有些超纲，有兴趣可XML。
+\end{tcolorbox}
+
+
+
+

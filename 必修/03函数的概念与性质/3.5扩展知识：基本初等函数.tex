@@ -1,0 +1,145 @@
+\section{扩展知识：基本初等函数}
+
+本节要点：
+\begin{itemize}
+    \item 掌握5大基本初等函数的概念。
+\end{itemize}
+
+%============================================================
+\subsection{基本初等函数}
+
+基本初等函数指的是幂函数、指数函数、对数函数、三角函数、反三角函数。
+
+常数函数：
+\[
+y=C
+\]
+
+幂函数：
+\[
+y=x^a\quad a\text{为常数}
+\]
+
+指数函数：
+\[
+y=a^x\quad a>0,a\ne 1
+\]
+
+对数函数：
+\[
+y=\log _ax\quad a>0,a\ne 1
+\]
+
+三角函数：
+\[
+\begin{matrix}
+	y=\sin x \hfill & y=\cos x \hfill \\
+	y=\tan x \hfill & y=\cot x \hfill \\
+\end{matrix}
+\]
+
+反三角函数：
+\[
+\begin{matrix}
+	y=\mathrm{arc}\sin x \hfill & y=\mathrm{arc}\cos x \hfill \\
+	y=\mathrm{arc}\tan x \hfill & y=\mathrm{arc}\cot x \hfill \\
+\end{matrix}
+\]
+
+~
+
+幂函数是最简单、最直观的函数，常见于物理的力学、电磁学。指数函数和对数函数在核物理、统计学、经济学中有广泛使用。三角函数和反三角函数将直线和圆联系起来，在对弧的研究中有广泛使用。
+
+古典数学中，或工科数学中，我们研究的就是这5个基本初等函数及其有限的算术组合，没有更多的函数了。事实上，指数函数和对数函数互为反函数，三角函数和反三角函数也互为反函数，所以可以说这3类函数是全部概念了。
+
+高中的函数就是围绕这5个基本初等函数，讨论其性质和实际用途，这将在后续章节中逐步展开。
+
+%============================================================
+\subsection{双曲函数}
+
+双曲函数指的是由指数函数和对数函数构成的具有类似三角函数性质的函数。
+
+双曲正弦：
+\[
+y=\mathrm{sh}x=\frac{e^x-e^{-x}}{2}
+\]
+
+双曲余弦：
+\[
+y=\mathrm{ch}x=\frac{e^x+e^{-x}}{2}
+\]
+
+双曲正切：
+\[
+y=\mathrm{th}x=\frac{e^x-e^{-x}}{e^x+e^{-x}}
+\]
+
+反双曲正弦：
+\[
+y=\mathrm{arsh}x=\ln \left( x+\sqrt{x^2+1} \right)
+\]
+
+反双曲余弦：
+\[
+y=\mathrm{arch}x=\ln \left( x+\sqrt{x^2-1} \right)
+\]
+
+反双曲正切：
+\[
+y=\mathrm{arth}x=\frac{1}{2}\ln \frac{1+x}{1-x}
+\]
+
+%============================================================
+\subsection{常用函数公式}
+
+本节罗列常用函数的公式，以便查询。
+
+~
+
+三角函数公式：
+\begin{align*}
+&\sin \left( \alpha +\beta \right) =\sin \alpha \cos \beta +\cos \alpha \sin \beta \\
+&\cos \left( \alpha +\beta \right) =\cos \alpha \cos \beta -\sin \alpha \sin \beta \\
+&\tan \left( \alpha +\beta \right) =\frac{\tan \alpha +\tan \beta}{1-\tan \alpha \tan \beta} \\
+&\sin 2\alpha =2\sin \alpha \cos \alpha \\
+&\cos 2\alpha =\cos ^2\alpha -\sin ^2\alpha =2\cos ^2\alpha -1=1-2\sin ^2\alpha \\
+&\tan 2\alpha =\frac{2\tan \alpha}{1-\tan ^2\alpha}
+\end{align*}
+\begin{align*}
+&\sin \alpha +\sin \beta =2\sin \left( \frac{\alpha +\beta}{2} \right) \cos \left( \frac{\alpha -\beta}{2} \right) \\
+&\sin \alpha -\sin \beta =2\cos \left( \frac{\alpha +\beta}{2} \right) \sin \left( \frac{\alpha -\beta}{2} \right) \\
+&\cos \alpha +\cos \beta =2\cos \left( \frac{\alpha +\beta}{2} \right) \cos \left( \frac{\alpha -\beta}{2} \right) \\
+&\cos \alpha -\cos \beta =-2\sin \left( \frac{\alpha +\beta}{2} \right) \sin \left( \frac{\alpha -\beta}{2} \right)
+\end{align*}
+\begin{align*}
+&\sin \alpha \cos \beta =\frac{1}{2}\left[ \sin \left( \alpha +\beta \right) +\sin \left( \alpha -\beta \right) \right] \\
+&\cos \alpha \sin \beta =\frac{1}{2}\left[ \sin \left( \alpha +\beta \right) -\sin \left( \alpha -\beta \right) \right] \\
+&\cos \alpha \cos \beta =\frac{1}{2}\left[ \cos \left( \alpha +\beta \right) +\cos \left( \alpha -\beta \right) \right] \\
+&\sin \alpha \sin \beta =-\frac{1}{2}\left[ \cos \left( \alpha +\beta \right) -\cos \left( \alpha -\beta \right) \right]
+\end{align*}
+
+幂函数公式：
+\[
+x^a=e^{\ln x^a}=e^{a\ln x}
+\]
+
+指数函数公式：
+\begin{align*}
+&a^{x+y}=a^x\cdot a^y \\
+&a^{xy}=\left( a^x \right) ^y \\
+&a^{\frac{1}{x}}=\sqrt[x]{a} \\
+&a^{-x}=\frac{1}{a^x}
+\end{align*}
+
+对数函数公式：
+\begin{align*}
+&\log _a1=0 \\
+&\log _aa=1 \\
+&\log \left( xy \right) =\log x+\log y \\
+&\log x^a=a\log x \\
+&\log \frac{1}{x}=-\log x
+\end{align*}
+
+
+
+

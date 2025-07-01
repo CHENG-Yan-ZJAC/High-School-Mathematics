@@ -1,0 +1,111 @@
+\section{本章小结}
+
+本章介绍了三角函数：
+\begin{itemize}
+    \item 为了使三角公式顺利进展到三角函数，5.1先引入了弧度制；
+    \item 5.2顺势定义了3个基本的三角公式；
+    \item 5.3～5.5说的就是一件事，即推导$f\left( x_1+x_2 \right) $；
+    \item 5.6～5.7将三角公式推广到三角函数。
+\end{itemize}
+
+~
+
+\begin{example}[综合运用23，难度：$\star $]
+如图，正方形$ABCD$的边长为1，$P,Q$分别为边$AB,DA$上的点，当$\bigtriangleup APQ$的周长为2时，求$\angle PCQ$的大小。
+\end{example}
+
+解一：
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[line join=round, scale=3]
+\mydrawsquare[1]{A}{B}{C}{D}
+\coordinate[label=below:{$P$}] (P) at ($(A)!0.4!(B)$);
+\coordinate[label=left: {$Q$}] (Q) at ($(A)!0.6!(D)$);
+\draw[thick,blue] (Q)--(P)--(C)--(Q);
+\coordinate[label=left: {$x$}]   (x)  at ($(A)!0.5!(Q)$);
+\coordinate[label=left: {$1-x$}] (x') at ($(Q)!0.5!(D)$);
+\coordinate[label=below:{$y$}]   (y)  at ($(A)!0.5!(P)$);
+\coordinate[label=below:{$1-y$}] (y') at ($(P)!0.5!(B)$);
+\coordinate[label=above:{$1$}]   (t1) at ($(D)!0.5!(C)$);
+\coordinate[label=right:{$1$}]   (t2) at ($(C)!0.5!(B)$);
+\coordinate[label=below:{$\sqrt{1+\left( 1-x \right) ^2}$}] (t3) at ($(C)!0.5!(Q)$);
+\coordinate[label=below:{$\sqrt{1+\left( 1-y \right) ^2}$}] (t4) at ($(C)!0.5!(P)$);
+\coordinate[label=below:{$\sqrt{x^2+y^2}$}]                 (t5) at ($(Q)!0.5!(P)$);
+\pic["$\theta $",draw,angle radius=0.5cm,angle eccentricity=1.5] {angle=Q--C--P};
+\end{tikzpicture}
+\end{figure}
+
+如上图设置。根据$\bigtriangleup APQ$的周长为2可得：
+\begin{align*}
+&\because x+y+\sqrt{x^2+y^2}=2 \\
+&\therefore x^2+y^2=\left[ 2-\left( x+y \right) \right] ^2=4-4x-4y+x^2+2xy+y^2 \\
+&\therefore 2x+2y=2+xy \\
+&\therefore 4x^2+8xy+4y^2=4+4xy+x^2y^2 \\
+&\therefore 4x^2+4y^2=4-4xy+x^2y^2=\left( 2-xy \right) ^2
+\end{align*}
+也即：
+\[
+x+y=\frac{2+xy}{2} \qquad x^2+y^2=\frac{\left( 2-xy \right) ^2}{4}
+\]
+
+使用余弦定理可得：
+\[
+\cos \theta =\frac{CQ^2+CP^2-PQ^2}{2\cdot CQ\cdot CP}
+\]
+分子的化简较为简单：
+\begin{align*}
+&=\left[ 1+\left( 1-x \right) ^2 \right] +\left[ 1+\left( 1-y \right) ^2 \right] -\left( x^2+y^2 \right) \\
+&=4-2x-2y \\
+&=4-2\cdot \frac{2+xy}{2} \\
+&=2-xy
+\end{align*}
+分母的化简较为复杂，下面略去了很多步骤：
+\begin{align*}
+&=2\sqrt{1+\left( 1-x \right) ^2}\sqrt{1+\left( 1-y \right) ^2} \\
+&=2\sqrt{\left[ 1+\left( 1-x \right) ^2 \right] \left[ 1+\left( 1-y \right) ^2 \right]} \\
+&=2\sqrt{4-4x-4y+2x^2+4xy-2x^2y+2y^2-2xy^2+x^2y^2} \\
+&=2\sqrt{4-4\left( x+y \right) +2\left( x^2+y^2 \right) +4xy+x^2y^2-2xy\left( x+y \right)} \\
+&=2\sqrt{\frac{\left( 2-xy \right) ^2}{2}}
+\end{align*}
+最终得：
+\[
+\cos \theta =\frac{2-xy}{2\sqrt{\frac{\left( 2-xy \right) ^2}{2}}}=\frac{1}{\sqrt{2}}
+\]
+
+解二：
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[line join=round, scale=3]
+\mydrawsquare[1]{A}{B}{C}{D}
+\coordinate[label=below:{$P$}] (P) at ($(A)!0.4!(B)$);
+\coordinate[label=left: {$Q$}] (Q) at ($(A)!0.6!(D)$);
+\draw[thick,blue] (Q)--(P)--(C)--(Q);
+\coordinate[label=left: {$x$}]   (x)  at ($(A)!0.5!(Q)$);
+\coordinate[label=left: {$1-x$}] (x') at ($(Q)!0.5!(D)$);
+\coordinate[label=below:{$y$}]   (y)  at ($(A)!0.5!(P)$);
+\coordinate[label=below:{$1-y$}] (y') at ($(P)!0.5!(B)$);
+\pic["$\alpha $",draw,angle radius=0.7cm,angle eccentricity=1.5] {angle=D--C--Q};
+\pic["$\theta $",draw,angle radius=0.5cm,angle eccentricity=1.5] {angle=Q--C--P};
+\pic["$\beta $",draw,angle radius=0.6cm,angle eccentricity=1.5] {angle=P--C--B};
+\end{tikzpicture}
+\end{figure}
+
+如上图设置，考察$\alpha +\beta$：
+\begin{align*}
+\tan \left( \alpha +\beta \right) &=\frac{\tan \alpha +\tan \beta}{1-\tan \alpha \tan \beta}=\frac{\left( 1-x \right) +\left( 1-y \right)}{1-\left( 1-x \right) \left( 1-y \right)} \\
+&=\frac{2-x-y}{x+y-xy}
+\end{align*}
+由周长条件可得$2x+2y=2+xy$，带入：
+\[
+\tan \left( \alpha +\beta \right) =\frac{2-x-y}{x+y-\left( 2x+2y-2 \right)}=1
+\]
+
+\begin{tcolorbox}
+解一使用余弦定理暴力计算，计算量大，思路明确。解二通过把角拆分，配合正切公式，计算量小非常多。
+\end{tcolorbox}
+
+
+
+
