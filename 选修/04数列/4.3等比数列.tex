@@ -1,0 +1,220 @@
+\section{等比数列}
+
+本节要点：
+\begin{itemize}
+    \item 掌握等比数列的概念；
+    \item 掌握等比数列的通项公式和求和公式。
+\end{itemize}
+
+%============================================================
+\subsection{等比数列的概念}
+
+\[
+a_n=a_1q^{n-1} \qquad n=1,2,3,\cdots
+\]
+
+需要注意：
+\begin{itemize}
+    \item 确定一个等比数列需要解决两个未知量，所以有两个条件就能求解一个等比数列；
+    \item 没有说$q>0$，事实上，$q$可以是任意实数；
+    \item 等比数列有$a_n=\sqrt{a_{n-1}a_{n+1}}$，对应了几何平均；
+    \item 等比数列可以视作指数函数$f\left( x \right) =a^x$的离散化，$q$可视为“底数”。
+\end{itemize}
+
+\begin{theorem}
+设两个等比数列$\left\{ a_n \right\} ,\left\{ b_n \right\} $，则$\left\{ a_nb_n \right\} ,\left\{ \frac{a_n}{b_n} \right\} $也是等比数列。
+\end{theorem}
+
+%============================================================
+\subsection{等比数列的前\texorpdfstring{$n$}{n}项和公式}
+
+\[
+S_n=\frac{a_1\left( 1-q^n \right)}{1-q}=\frac{a_1-a_nq}{1-q} \qquad q\ne 1,n=1,2,3,\cdots
+\]
+
+\begin{tcolorbox}
+反复体会求和公式的推导过程。
+\end{tcolorbox}
+
+或许写成如下方式更能发现问题：
+\begin{align*}
+&S_n=\frac{a_1-a_1q^n}{1-q}=\frac{a_1}{1-q}+\frac{-a_1}{1-q}q^n \\
+&S_n-\frac{a_1}{1-q}=\frac{-a_1}{1-q}q^n
+\end{align*}
+$S_n$减去一个偏移量后依然是等比数列，事实上，指数函数的积分依然是指数函数：
+\[
+\int{a^xdx}=\frac{a^x}{\ln a}+C \quad a>0,a\ne -1
+\]
+
+%============================================================
+\subsection{习题}
+
+\begin{example}[复习巩固3，难度：$\star $]
+求和：
+\begin{enumerate}
+    \item $\left( 2-3\times 5^{-1} \right) +\left( 4-3\times 5^{-2} \right) +\cdots +\left( 2n-3\times 5^{-n} \right) $
+    \item $1+2x+3x^2+\cdots +nx^{n-1}$
+\end{enumerate}
+\end{example}
+
+解一：
+
+（1）将式子化为：
+\[
+\left[ 2+4+\cdots +2n \right] -\left[ 3\times \left( \frac{1}{5} \right) ^1+3\times \left( \frac{1}{5} \right) ^2+\cdots +3\times \left( \frac{1}{5} \right) ^n \right]
+\]
+即一个等差数列和与一个等比数列和的差，略。
+
+（2）
+\begin{align*}
+&T_1=1+x+x^2+\cdots +x^{n-1}=\frac{1-x^n}{1-x} \\
+&T_2=x+x^2+\cdots +x^{n-1}=\frac{x\left( 1-x^{n-1} \right)}{1-x}=\frac{x-x^n}{1-x} \\
+&T_3=x^2+\cdots +x^{n-1}=\frac{x^2\left( 1-x^{n-2} \right)}{1-x}=\frac{x^2-x^n}{1-x} \\
+&\vdots \\
+&T_n=x^{n-1}=\frac{x^{n-1}-x^n}{1-x} \\
+&S_n=T_1+T_2+\cdots +T_n=\frac{\frac{1-x^n}{1-x}-nx^n}{1-x}=\frac{nx^{n+1}-\left( n+1 \right) x^n+1}{\left( 1-x \right) ^2}
+\end{align*}
+
+解二：
+
+（2）仔细观察，不难发现：
+\begin{align*}
+&S_n=1+2x+3x^2+4x^3+\cdots +nx^{n-1} \\
+&xS_n=x+2x^2+3x^3+\cdots +\left( n-1 \right) x^{n-1}+nx^n \\
+&S_n-xS_n=1+x+x^2+\cdots +x^{n-1}-nx^n=\frac{1-x^n}{1-x}-nx^n
+\end{align*}
+后略。
+
+\begin{tcolorbox}
+本题仔细观察表达式的项即可。
+\end{tcolorbox}
+
+~
+
+\begin{example}[综合运用7，难度：$\star \star $]
+已知数列$\left\{ a_n \right\} $的首项$a_1=1$，且满足$a_{n+1}+a_n=3\times 2^n$。
+\begin{enumerate}
+    \item 求证：$\left\{ a_n-2^n \right\} $是等比数列。
+    \item 求数列$\left\{ a_n \right\} $的前$n$项和$S_n$。
+\end{enumerate}
+\end{example}
+
+解：
+
+（1）
+\[
+\frac{a_{n+1}-2^{n+1}}{a_n-2^n}=\frac{3\times 2^n-a_n-2\times 2^n}{a_n-2^n}=\frac{2^n-a_n}{a_n-2^n}=-1
+\]
+证毕。
+
+（2）令$b_n=a_n-2^n$，则$b_1=a_1-2=-1$，于是：
+\[
+S_{n,a}=S_{n,b}+S_{n,2^n}=\frac{\left( -1 \right) \cdot \left[ 1-\left( -1 \right) ^n \right]}{1-\left( -1 \right)}+\frac{2\cdot \left[ 1-2^n \right]}{1-2}
+\]
+
+\begin{tcolorbox}
+虽然$a_n$不构成等差或等比，但是其变形构成等比。
+\end{tcolorbox}
+
+~
+
+\begin{example}[综合运用8，难度：$\star $]
+若数列$\left\{ a_n \right\} $的首项$a_1=1$，且满足$a_{n+1}=2a_n+1$，求数列$\left\{ a_n \right\} $的通项公式及前10项的和。
+\end{example}
+
+解：
+\begin{align*}
+&\because a_{n+1}=2a_n+1 \\
+&\therefore a_{n+1}+1=2a_n+2=2\left( a_n+1 \right)
+\end{align*}
+可见$\left\{ a_n+1 \right\} $构成了等比数列，略。
+
+\begin{tcolorbox}
+仔细观察条件，不难得到$a_n$之间的关系。
+\end{tcolorbox}
+
+~
+
+\begin{example}[拓广探索10，难度：$\star $]
+已知数列$\left\{ a_n \right\} $为等比数列，$a_1=1024$，公比$q=\frac{1}{2}$。若$T_n$是数列$\left\{ a_n \right\} $的前$n$项的积，求$T_n$的最大值。
+\end{example}
+
+解：
+\begin{align*}
+&\because a_n=1024\cdot \left( \frac{1}{2} \right) ^{n-1} \\
+&\therefore T_n=1024^n\cdot \left( \frac{1}{2} \right) ^{0+1+\cdots +\left( n-1 \right)}=1024^n\cdot \left( \frac{1}{2} \right) ^{\frac{n\left( n-1 \right)}{2}}=2^{\frac{-n^2+n}{2}+10n}
+\end{align*}
+
+\begin{tcolorbox}
+指数将乘除化成加减，所以本题实则考察等差数列。
+\end{tcolorbox}
+
+~
+
+\begin{example}[拓广探索11，难度：$\star $]
+已知数列$\left\{ a_n \right\} $的首项$a_1=\frac{3}{5}$，且满足$a_{n+1}=\frac{3a_n}{2a_n+1}$。
+\begin{enumerate}
+    \item 求证：数列$\left\{ \frac{1}{a_n}-1 \right\} $为等比数列。
+    \item 若$\frac{1}{a_1}+\frac{1}{a_2}+\frac{1}{a_3}+\cdots +\frac{1}{a_n}<100$，求满足条件的最大整数$n$。
+\end{enumerate}
+\end{example}
+
+解：
+
+（1）
+\begin{align*}
+&\because a_{n+1}=\frac{3a_n}{2a_n+1} \\
+&\therefore \frac{1}{a_{n+1}}=\frac{2a_n+1}{3a_n}=\frac{2}{3}+\frac{1}{3a_n} \\
+&\therefore \frac{1}{a_{n+1}}-1=\frac{1}{3a_n}-\frac{1}{3}
+\end{align*}
+
+（2）注意到：
+\[
+\frac{1}{a_1}+\frac{1}{a_2}+\frac{1}{a_3}+\cdots +\frac{1}{a_n}=\left( \frac{1}{a_1}-1 \right) +\cdots +\left( \frac{1}{a_n}-1 \right) +n
+\]
+
+\begin{tcolorbox}
+本题分析$a_n$需要仔细。
+\end{tcolorbox}
+
+~
+
+\begin{example}[拓广探索12，难度：$\star $]
+已知数列$\left\{ a_n \right\} $为等差数列，$a_1=1,a_3=2\sqrt{2}+1$，前$n$项的和为$S_n$，数列$\left\{ b_n \right\} $满足$b_n=\frac{S_n}{n}$，求证：
+\begin{enumerate}
+    \item 数列$\left\{ b_n \right\} $为等差数列；
+    \item 数列$\left\{ a_n \right\} $中点任意三项均不能构成等比数列。
+\end{enumerate}
+\end{example}
+
+解：
+
+（1）
+\begin{align*}
+&\because a_n=1+\sqrt{2}\cdot \left( n-1 \right) \\
+&\therefore S_n=\frac{n\left[ 1+1+\sqrt{2}\cdot \left( n-1 \right) \right]}{2}=\frac{n\left[ \sqrt{2}n+2-\sqrt{2} \right]}{2} \\
+&\therefore \frac{S_n}{n}=\frac{\sqrt{2}n+2-\sqrt{2}}{2}
+\end{align*}
+
+（2）任取三项$a_l,a_m,a_n$，且$l<m<n$，假设能构成等比数列，则：
+\begin{align*}
+&\because a_l\cdot a_n={a_m}^2 \\
+&\therefore \left[ 1+\sqrt{2}\cdot \left( l-1 \right) \right] \cdot \left[ 1+\sqrt{2}\cdot \left( n-1 \right) \right] =\left[ 1+\sqrt{2}\cdot \left( m-1 \right) \right] ^2 \\
+&\therefore 2\cdot \left( l-1 \right) \cdot \left( n-1 \right) +\sqrt{2}\cdot \left( l+n-2 \right) =2\left( m-1 \right) ^2+2\sqrt{2}\cdot \left( m-1 \right)
+\end{align*}
+考察该等式，由于$l,m,n$为整数，且$\sqrt{2}$是无理数，所以要使等式成立，必有：
+\[
+\begin{cases}
+	2\cdot \left( l-1 \right) \cdot \left( n-1 \right) =2\left( m-1 \right) ^2\\
+	\sqrt{2}\cdot \left( l+n-2 \right) =2\sqrt{2}\cdot \left( m-1 \right)\\
+\end{cases}
+\]
+稍加分析就可以知道不可能，略。
+
+\begin{tcolorbox}
+本题考察等比数列的性质。
+\end{tcolorbox}
+
+
+
+

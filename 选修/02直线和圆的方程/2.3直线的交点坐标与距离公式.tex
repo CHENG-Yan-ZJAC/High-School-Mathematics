@@ -1,0 +1,99 @@
+\section{直线的交点坐标与距离公式}
+
+本节要点：
+\begin{itemize}
+    \item 从二元一次方程组的解出发理解直线的几何关系；
+    \item 熟练掌握点到直线的距离公式；
+    \item 掌握平行线间的距离公式。
+\end{itemize}
+
+~
+
+点线距离公式：
+\[
+d=\frac{\left| Ax_0+By_0+C \right|}{\sqrt{A^2+B^2}}
+\]
+
+线线距离公式：
+\[
+d=\frac{\left| C_1-C_2 \right|}{\sqrt{A^2+B^2}}
+\]
+
+\begin{tcolorbox}
+仔细阅读距离公式的推导过程。
+\end{tcolorbox}
+
+%============================================================
+\subsection{习题}
+
+\begin{example}[综合运用14，难度：$\star $]
+已知$A\left( -3,-4 \right) ,B\left( 6,3 \right) $两点到直线$l:ax+y+1=0$的距离相等，求$a$的值。
+\end{example}
+
+解一：
+
+根据点线距离公式：
+\begin{align*}
+&\because d_A=\frac{\left| -3a-4+1 \right|}{\sqrt{a^2+1}} \\
+&\because d_B=\frac{\left| Ax_0+By_0+C \right|}{\sqrt{A^2+B^2}}=\frac{\left| 6a+3+1 \right|}{\sqrt{a^2+1}} \\
+&\because \left( -3a-3 \right) ^2=\left( 6a+4 \right) ^2 \\
+&\therefore 27a^2+30a+7=0 \\
+&\therefore a=-\frac{1}{3}\mathrm{or}-\frac{7}{9}
+\end{align*}
+
+解二：
+
+根据几何关系，若两点不在同一侧，则线段$AB$的中点$\left( \frac{3}{2},-\frac{1}{2} \right) $在直线上，带入直线方程易得：
+\[
+a=-\frac{1}{3}
+\]
+或者两点在同侧，易得向量$\overrightarrow{AB}=\left( 9,7 \right) $和直线平行，于是：
+\[
+k=-a=\frac{7}{9}
+\]
+
+\begin{tcolorbox}
+观察几何关系可以降低计算量。
+\end{tcolorbox}
+
+~
+
+\begin{example}[拓广探索11，难度：$\star \star $]
+已知$0<x<1,0<y<1$。
+\begin{enumerate}
+    \item 求证：$\sqrt{x^2+y^2}+\sqrt{x^2+\left( 1-y \right) ^2}+\sqrt{\left( 1-x \right) ^2+y^2}$
+    
+    $+\sqrt{\left( 1-x \right) ^2+\left( 1-y \right) ^2}\geqslant 2\sqrt{2}$，并求使等式成立的条件。
+    \item 说明上述不等式的几何意义。
+\end{enumerate}
+\end{example}
+
+解：
+
+构建如下单位正方形$OABC$，$P$在正方形内部。
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[line join=round, scale=2]
+\mydrawxy{0}{1.3}{0}{1.2}
+\mydrawsquare[1]{O}{A}{B}{C}
+\draw[dashed] (A)--(C) (B)--(O);
+\coordinate[label=left:{$P$}] (P) at (0.3,0.5);
+\draw[dashed,blue] (C)--(P)--(A) (O)--(P)--(B);
+\end{tikzpicture}
+\end{figure}
+
+根据三角形三边长度关系易得：
+\begin{itemize}
+    \item $\sqrt{x^2+y^2}+\sqrt{\left( 1-x \right) ^2+\left( 1-y \right) ^2}\geqslant \sqrt{2}$，当且仅当$P$在直线$OB$上时等号成立；
+    \item $\sqrt{x^2+\left( 1-y \right) ^2}+\sqrt{\left( 1-x \right) ^2+y^2}\geqslant \sqrt{2}$，当且仅当$P$在直线$AC$上时等号成立；
+\end{itemize}
+所以，当且仅当$P$在$OB,AC$的交点时求证的等式的等号成立。
+
+\begin{tcolorbox}
+使用几何可以非常容易证明此题。
+\end{tcolorbox}
+
+
+
+

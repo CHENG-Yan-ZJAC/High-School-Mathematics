@@ -1,0 +1,208 @@
+\section{导数的运算}
+
+本节要点：
+\begin{itemize}
+    \item 掌握基本初等函数的求导公式；
+    \item 掌握导数的运算法则；
+    \item 掌握复合函数的求导方法。
+\end{itemize}
+
+%============================================================
+\subsection{基本初等函数的导数}
+
+\begin{align*}
+\begin{matrix}
+	\left( C \right) '=0 \hfill                                       & \left( x^a \right) '=a\cdot x^{a-1} \hfill \\
+	\left( a^x \right) '=a^x\ln a \hfill                              & \left( e^x \right) '=e^x \hfill \\
+	\left( \log _ax \right) '=\frac{1}{x\ln a} \hfill                 & \left( \ln x \right) '=\frac{1}{x} \hfill \\
+	\left( \sin x \right) '=\cos x \hfill                             & \left( \cos x \right) '=-\sin x \hfill \\
+	\left( \tan x \right) '=\sec ^2x \hfill                           & \left( \cot x \right) '=-\csc ^2x \hfill \\
+	\left( \sec x \right) '=\sec x\cdot \tan x \hfill                 & \left( \csc x \right) '=-\csc x\cdot \cot x \hfill \\
+	\left( \mathrm{arc}\sin x \right) '=\frac{1}{\sqrt{1-x^2}} \hfill & \left( \mathrm{arc}\cos x \right) '=-\frac{1}{\sqrt{1-x^2}} \hfill \\
+	\left( \mathrm{arc}\tan x \right) '=\frac{1}{1+x^2} \hfill        & \left( \mathrm{arc}\cot x \right) '=-\frac{1}{1+x^2} \hfill \\
+	\left( \mathrm{sh}x \right) '=\mathrm{ch}x \hfill                 & \left( \mathrm{ch}x \right) '=\mathrm{sh}x \hfill \\
+\end{matrix}
+\end{align*}
+
+以上基本公式中，除了$\left( C \right) ',\left( a^x \right) ',\left( \sin x \right) '$，其余都可以从这三个公式导出。
+
+{\bf 计算$\left( C \right) '$}
+\[
+\left( C \right) '=\underset{\Delta x\rightarrow 0}{\lim}\frac{C-C}{\Delta x}=0
+\]
+
+{\bf 计算$\left( a^x \right) '$}
+\[
+\left( a^x \right) '=\underset{\Delta x\rightarrow 0}{\lim}\frac{a^{x+\Delta x}-a^x}{\Delta x}=a^x\underset{\Delta x\rightarrow 0}{\lim}\frac{a^{\Delta x}-1}{\Delta x}=a^x\ln a
+\]
+
+{\bf 计算$\left( \sin x \right) '$}
+\begin{align*}
+\left( \sin x \right) '&=\underset{\Delta x\rightarrow 0}{\lim}\frac{\sin \left( x+\Delta x \right) -\sin x}{\Delta x} \\
+&=\underset{\Delta x\rightarrow 0}{\lim}\frac{2\sin \frac{\Delta x}{2}\cos \frac{2x+\Delta x}{2}}{\Delta x}=\underset{\Delta x\rightarrow 0}{\lim}cos \frac{2x+\Delta x}{2}=\cos x
+\end{align*}
+
+%============================================================
+\subsection{导数的四则运算法则}
+
+\begin{align*}
+&\left( C\cdot f \right) '=C\cdot f' \\
+&\left( f\pm g \right) '=f'\pm g' \\
+&\left( f\cdot g \right) '=f'g+fg' \\
+&\left( \frac{f}{g} \right) '=\frac{f'g-fg'}{g^2} \\
+&\left( \frac{1}{g} \right) '=-\frac{g'}{g^2}
+\end{align*}
+
+前两个公式表明导数运算是线性的。
+
+%============================================================
+\subsection{简单的复合函数的导数}
+
+\begin{theorem}[复合函数求导定理]
+若函数$y=y\left( u \right) ,u=u\left( x \right) $在对应区间可导，则复合函数$y=y\left[ u\left( x \right) \right] $在对应区间也可导，且有：
+\[
+\frac{dy}{dx}=\frac{dy}{du}\cdot \frac{du}{dx}
+\]
+\end{theorem}
+
+复合求导法则是接下去三种求导法则（反函数求导、隐函数求导、参数式函数求导）的基础。
+
+%============================================================
+\subsection{拓展讨论：反函数的求导}
+
+\begin{theorem}[反函数求导定理]
+若函数$y=f\left( x \right) $在某区间内单调可导，且$y'\ne 0$，则它的反函数$x=f^{-1}\left( y \right) $在对应区间内也可导，且有：
+\[
+f'\left( x \right) =\frac{1}{\left( f^{-1} \right) '\left( y \right)} \quad \text{或写成} \quad \frac{dy}{dx}=\frac{1}{\frac{dx}{dy}}
+\]
+\end{theorem}
+
+\begin{proof}
+\[
+f'\left( x \right) =\underset{\Delta x\rightarrow 0}{\lim}\frac{\Delta y}{\Delta x}=\underset{\Delta x\rightarrow 0}{\lim}\frac{1}{\frac{\Delta x}{\Delta y}}=\frac{1}{\underset{\Delta y\rightarrow 0}{\lim}\frac{\Delta x}{\Delta y}}=\frac{1}{\left( f^{-1} \right) '\left( y \right)}
+\]
+\end{proof}
+
+~
+
+\begin{example}
+设$y=\mathrm{arc}\sin x$，求$y'$。
+\end{example}
+
+解：
+\[
+\frac{dy}{dx}=\frac{1}{\frac{dx}{dy}}=\frac{1}{\left( \sin y \right) '}=\frac{1}{\cos y}=\frac{1}{\sqrt{1-\sin ^2y}}=\frac{1}{\sqrt{1-x^2}}
+\]
+
+%============================================================
+\subsection{拓展讨论：隐函数的求导}
+
+\begin{theorem}[一元隐函数求导定理]
+若方程$F\left( x,y \right) =0$确定唯一的单值连续可导函数$y=f\left( x \right) $，则有：
+\[
+\frac{dy}{dx}=-\frac{F_x}{F_y}
+\]
+其中：
+\begin{itemize}
+    \item $F_x$：表示$F\left( x,y \right) =0$对$x$求导，$x$是自变量，$y$是常量；
+    \item $F_y$：表示$F\left( x,y \right) =0$对$y$求导，$y$是自变量，$x$是常量。
+\end{itemize}
+\end{theorem}
+
+\begin{tcolorbox}
+该定理在多元函数微积分中证明，这里只需知道如何计算一元隐函数的导数。
+\end{tcolorbox}
+
+~
+
+\begin{example}
+假设方程$e^y=e-xy$确定了函数$y=f\left( x \right) $，求$y'$。
+\end{example}
+
+解：
+
+令$F\left( x,y \right) :=e^y-e+xy=0$，得：
+\begin{align*}
+&\because \begin{cases}
+	F_x=y\\
+	F_y=e^y+x\\
+\end{cases} \\
+&\therefore y'=-\frac{F_x}{F_y}=-\frac{y}{e^y+x}
+\end{align*}
+
+%============================================================
+\subsection{拓展讨论：参数式函数的求导}
+
+\begin{theorem}[参数函数求导定理]
+若参数方程
+\begin{align*}
+\begin{cases}
+	x=x\left( t \right)\\
+	y=y\left( t \right)\\
+\end{cases}
+\end{align*}
+可导，$x=x\left( t \right) $存在可导的反函数，且$x'\left( t \right) \ne 0$，则由该参数方程确定的函数$y=f\left( x \right) $可导，且有：
+\[
+\frac{dy}{dx}=\frac{y'\left( t \right)}{x'\left( t \right)}
+\]
+\end{theorem}
+
+~
+
+\begin{example}
+若有摆线
+\begin{align*}
+\begin{cases}
+	x=t-\sin t\\
+	y=1-\cos t\\
+\end{cases}
+\end{align*}
+求$t=\pi /2$处的切线方程。
+\end{example}
+
+解：
+
+切线方程$y=f'\left( x_0 \right) x+\left[ f\left( x_0 \right) -f'\left( x_0 \right) x_0 \right] $，可得：
+\begin{align*}
+&\left. \frac{dy}{dx} \right|_{t=\pi /2}=\left. \frac{dy}{dt}/\frac{dx}{dt} \right|_{t=\pi /2}=\left. \frac{\sin t}{1-\cos t} \right|_{t=\pi /2}=1 \\
+&y=1\cdot x+\left[ \left( 1-\cos \frac{\pi}{2} \right) -1\cdot \left( \frac{\pi}{2}-1 \right) \right] =x+2-\frac{\pi}{2}
+\end{align*}
+
+%============================================================
+\subsection{拓展讨论：高阶导数}
+
+\begin{definition}[二阶导数]
+设函数$f\left( x \right) $在点$x_0$的某邻域$N\left( x_0 \right) $内可导，若极限
+\[
+\underset{\Delta x\rightarrow 0}{\lim}\frac{f'\left( x_0+\Delta x \right) -f'\left( x_0 \right)}{\Delta x}
+\]
+存在，则称该极限值为{\bf $f\left( x \right) $在点$x_0$处的二阶导数}，记作：
+\[
+f''\left( x_0 \right) \quad \text{或} \quad \left. y'' \right|_{x=x_0} \quad \text{或} \quad \left. \frac{d^2y}{dx^2} \right|_{x=x_0}
+\]
+\end{definition}
+
+同样，我们可以定义三阶导数、四阶导数、直至$n$阶导数。
+
+%============================================================
+\subsection{习题}
+
+\begin{example}[综合运用6，难度：$\star $]
+已知函数$f\left( x \right) $满足$f\left( x \right) =f'\left( \frac{\pi}{4} \right) \sin x-\cos x$，求$f\left( x \right) $在$x=\frac{\pi}{4}$处的导数。
+\end{example}
+
+解：
+
+对函数求导：
+\begin{align*}
+&f'\left( x \right) =f'\left( \frac{\pi}{4} \right) \cos x+\sin x \\
+&f'\left( \frac{\pi}{4} \right) =f'\left( \frac{\pi}{4} \right) \cdot \frac{\sqrt{2}}{2}+\frac{\sqrt{2}}{2}
+\end{align*}
+
+\begin{tcolorbox}
+本题没有难度。
+\end{tcolorbox}
+
+
+
+

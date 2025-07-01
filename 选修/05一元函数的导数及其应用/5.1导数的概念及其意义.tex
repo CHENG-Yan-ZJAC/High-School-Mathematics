@@ -1,0 +1,60 @@
+\section{导数的概念及其意义}
+
+本节要点：
+\begin{itemize}
+    \item 掌握导数的概念；
+    \item 理解导数的几何意义。
+\end{itemize}
+
+%============================================================
+\subsection{变化率的问题}
+
+\begin{definition}[增量和变化率]
+我们定义，{\bf 自变量的增量}是两个自变量的差，{\bf 因变量的增量}是两个因变量的差，即：
+\begin{align*}
+&\Delta x:=x_1-x_0 \\
+&\Delta y:=y_1-y_0=f\left( x_1 \right) -f\left( x_0 \right)
+\end{align*}
+我们继续定义两个增量的比值为{\bf 函数的变化率}，即：
+\[
+\frac{\Delta y}{\Delta x}=\frac{f\left( x_1 \right) -f\left( x_0 \right)}{x_1-x_0}=\frac{f\left( x_0+\Delta x \right) -f\left( x_0 \right)}{\Delta x}
+\]
+\end{definition}
+
+显然，函数的变化率是一个和自变量及其增量区间有关的新函数。当取相同的$\Delta x$时，变化率描述了函数的变化快慢。变化率越大，说明函数在同等$\Delta x$下的变化越大。
+
+%============================================================
+\subsection{导数的概念及其几何意义}
+
+下面我们考察函数在一个点上的变化率，即当$x_1\rightarrow x_0$（或$\Delta x\rightarrow 0$），函数的变化率的存在性和取值。
+
+\begin{definition}[导数]
+设函数$f\left( x \right) $在点$x_0$的某邻域$N\left( x_0 \right) $内有定义，若当$\Delta x\rightarrow 0$时$\Delta y/\Delta x$的极限存在，则称{\bf 函数$f\left( x \right) $在$x_0$处可导}，并称此极限值为{\bf 函数$f\left( x \right) $在点$x_0$的导数（derivative）}，记为$f'\left( x_0 \right) $，即：
+\[
+f'\left( x_0 \right) :=\underset{\Delta x\rightarrow 0}{\lim}\frac{\Delta y}{\Delta x} \quad \text{或} \quad f'\left( x_0 \right) :=\underset{x_1\rightarrow x_0}{\lim}\frac{f\left( x_1 \right) -f\left( x_0 \right)}{x_1-x_0}
+\]
+也可用莱布尼兹（Leibniz）记号记为：
+\[
+\left. y' \right|_{x=x_0} \quad \text{或} \quad \left. \frac{dy}{dx} \right|_{x=x_0}
+\]
+\end{definition}
+
+从定义上来讲，函数$f\left( x \right) $在$x_0$处的导数是一个极限，是一个可计算的确定的数。具体还有左导数和右导数，略。
+
+\begin{definition}[导函数]
+如果函数$f\left( x \right) $在区间$D$内每一点都可导，则称每个导数构成的新函数为{\bf $f\left( x \right) $的导函数}，记为$f'\left( x \right) $（或$y'$）。显然，导函数$f'\left( x \right) $在$x_0$的值就是导数$f'\left( x_0 \right) $。
+\end{definition}
+
+除非特别指明，一般我们将导函数简称为导数。区间$\left( a,b \right) $（或$\left[ a,b \right] $）内所有可导函数的集合通常记作$D\left( a,b \right) $（或$D\left[ a,b \right] $），所以$f\left( x \right) $在区间$D$内可导也可记作$f\left( x \right) \in D\left( a,b \right) $（或$f\left( x \right) \in D\left[ a,b \right] $）。
+
+求导是对函数的一种运算。运算对象是函数，得到的结果是另一个函数。从集合角度，求导是一个函数集合到另一个函数集合的映射。
+
+\begin{tcolorbox}
+在讨论导数的时候，紧紧抓住导数的定义，从定义出发。后续关于导数的定理和公式都是用定义证明和推导。
+\end{tcolorbox}
+
+从几何上来讲，导数的意义是切线的斜率。物理上，导数描述了一个物理量的瞬时变化速度，比方说路程的导数是速度，速度的导数是加速度。导数为求解物理量的变化速度提供了强大的数学工具。
+
+
+
+

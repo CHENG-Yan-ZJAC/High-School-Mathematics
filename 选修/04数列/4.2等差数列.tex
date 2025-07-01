@@ -1,0 +1,85 @@
+\section{等差数列}
+
+本节要点：
+\begin{itemize}
+    \item 掌握等差数列的概念；
+    \item 掌握等差数列的通项公式和求和公式。
+\end{itemize}
+
+%============================================================
+\subsection{等差数列的概念}
+
+\[
+a_n=a_1+\left( n-1 \right) d \qquad n=1,2,3,\cdots
+\]
+
+需要注意：
+\begin{itemize}
+    \item 确定一个等差数列需要解决两个未知量，所以有两个条件就能求解一个等差数列；
+    \item 没有说$d>0$，事实上，$d$可以是任意实数；
+    \item 等差数列有$a_n=\left( a_{n-1}+a_{n+1} \right) /2$，对应了算术平均；
+    \item 等差数列可以视作直线$f\left( x \right) =kx+c$的离散化，$d$可视为“斜率”。
+\end{itemize}
+
+\begin{theorem}
+设两个等差数列$\left\{ a_n \right\} ,\left\{ b_n \right\} $，则$\left\{ pa_n+qb_n \right\} $也是等差数列。
+\end{theorem}
+
+%============================================================
+\subsection{等差数列的前\texorpdfstring{$n$}{n}项和公式}
+
+\[
+S_n=\frac{n\left( a_1+a_n \right)}{2}=na_1+\frac{n\left( n-1 \right)}{2}d \qquad n=1,2,3,\cdots
+\]
+
+\begin{tcolorbox}
+反复体会求和公式的推导过程。
+\end{tcolorbox}
+
+或许写成如下方式更能发现问题：
+\begin{align*}
+&S_n=\frac{d}{2}n^2+\left( a_1-\frac{d}{2} \right) n \\
+&\frac{S_n}{n}=\frac{d}{2}n+\left( a_1-\frac{d}{2} \right)
+\end{align*}
+可见$S_n$是一条二次曲线，其次$\frac{S_n}{n}$是一个等差数列。如果写成如下形式：
+\[
+a_n=\frac{S_n-S_{n-1}}{n-\left( n-1 \right)}
+\]
+体会“$a_n$是$S_n$在$n$点的斜率”这个说法，这就是差分方程的雏形。
+
+%============================================================
+\subsection{习题}
+
+\begin{example}[综合运用8，难度：$\star $]
+已知两个等差数列$2,6,10,\cdots ,190$及$2,8,14,\cdots ,200$，将这两个等差数列的公共项按从小到大的顺序组成一个新数列。
+求这个新数列的各项之和。
+\end{example}
+
+解：
+
+易得：
+\begin{align*}
+&a_n=2+4\left( n-1 \right) \qquad n=1,2,\cdots ,48 \\
+&b_m=2+6\left( m-1 \right) \qquad m=1,2,\cdots ,34
+\end{align*}
+求解公共项：
+\begin{align*}
+&\because 2+4\left( n-1 \right) =2+6\left( m-1 \right) \\
+&\therefore 2n+1=3m
+\end{align*}
+可见$3m$是奇数，考虑到$2n+1$最大取到97，于是$m$取值：
+\[
+m=1,3,5,7,9,11,13,15,17,19,21,23,25,27,29,31
+\]
+新数列为首项2公差12的等差数列，共16项，于是：
+\[
+16\cdot 2+\frac{16\cdot \left( 16-1 \right)}{2}\cdot 12=1472
+\]
+
+\begin{tcolorbox}
+本题考察项的表达式。
+\end{tcolorbox}
+
+
+
+

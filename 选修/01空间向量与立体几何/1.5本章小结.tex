@@ -1,0 +1,73 @@
+\section{本章小结}
+
+引入向量后，所有的几何问题都有了明显的思路，只是计算量大小的问题。任何几何问题采用暴力计算的方法一定能求解，但这显然不是高效的方法。要学好几何，则不可偏用向量，适当结合一定的纯几何可大大降低计算量。
+
+%============================================================
+\subsection{习题}
+
+\begin{example}[拓广探索16，难度：$\star \star $]
+如图，在棱长为$a$的正方体$OABC-O'A'B'C'$中，$E,F$分别是棱$AB,BC$上的动点，且$AE=BF$。
+\begin{itemize}
+    \item 求证：$A'F\bot C'E$；
+    \item 当三棱锥$B'-BEF$的体积取得最大值时，求平面$B'EF$与平面$BEF$夹角的正切值。
+\end{itemize}
+\end{example}
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[style={x={(-145:0.5)},y={(1cm,0)},z={(0,1cm)}}, line join=round, scale=2]
+\mydrawcube[1]{O}{A}{B}{C}{O'}{A'}{B'}{C'}
+\coordinate[label=below left: {$F$}] (F) at ($(B)!0.7!(C)$);
+\coordinate[label=below:      {$E$}] (E) at ($(A)!0.7!(B)$);
+\coordinate[label=above:      {$y$}] (y) at ($(C)!0.5!(F)$);
+\coordinate[label=below right:{$x$}] (x) at ($(B)!0.5!(E)$);
+\draw[dashed] (C')--(C) (O)--(C)--(B) (B')--(F)--(E);
+\draw[thick] (B')--(E);
+\draw[dashed,blue] (C')--(E) (A')--(F);
+\fill[pink!70!white,opacity=0.5] (F)--(E)--(B)--cycle;
+\fill[blue!50!white,opacity=0.5] (F)--(E)--(B')--cycle;
+\end{tikzpicture}
+\end{figure}
+
+解：
+
+（1）在$E,F$均是动点的前提下，显然不能用纯几何的方法求证。考虑采用向量的方法，以$O$为原点建立直角坐标系，于是：
+\begin{align*}
+&\because \begin{cases}
+	F=\left( 0,y,0 \right) ,E=\left( x,a,0 \right)\\
+	A'=\left( a,a,a \right) ,C'=\left( 0,0,a \right)\\
+\end{cases} \\
+&\therefore \begin{cases}
+	\overrightarrow{A'F}=\left( -a,y-a,-a \right)\\
+	\overrightarrow{C'E}=\left( x,a,-a \right)\\
+\end{cases} \\
+&\therefore \overrightarrow{A'F}\cdot \overrightarrow{C'E}=-ax+a\left( y-a \right) +a^2=-ax+ay \\
+&\because AE=BF \\
+&\therefore EB=CF \\
+&\therefore x=y \\
+&\therefore \overrightarrow{A'F}\cdot \overrightarrow{C'E}=0
+\end{align*}
+
+（2）三棱锥$B'-BEF$的体积
+\[
+V_{B'-BEF}=\frac{1}{3}\cdot S_{\bigtriangleup BEF}\cdot BB'
+\]
+显然当$S_{\bigtriangleup BEF}$最大时，$V_{B'-BEF}$最大，于是：
+\begin{align*}
+&\because S_{\bigtriangleup BEF}=\frac{1}{2}\cdot BF\cdot BE=\frac{1}{2}\cdot \left( a-y \right) \cdot x\\
+&\because x=y \\
+&\therefore S_{\bigtriangleup BEF}=\frac{1}{2}\left( -x^2+ax \right) \quad x\in \left( 0,a \right)
+\end{align*}
+显然当$x=y=1/2$时，$V_{B'-BEF}$最大，此时，$B'EF$和$BEF$均为等腰三角形，后略。
+
+深入分析：
+
+有兴趣可以计算一下$V_{E-FA'B'}$，提示$V_{E-FA'B'}=V_{B-FA'B'}$。再看一下$V_{E-FA'B'}$什么时候取得最大值。
+
+\begin{tcolorbox}
+该题是典型的通过向量联系几何和代数的题目，整体思路还是明显的，通过向量将几何问题转化为代数问题，剩下的就是函数了。
+\end{tcolorbox}
+
+
+
+

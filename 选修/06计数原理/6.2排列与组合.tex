@@ -1,0 +1,38 @@
+\section{排列与组合}
+
+本节要点：
+\begin{itemize}
+    \item 掌握排列的概念及其计算公式；
+    \item 掌握组合的概念及其计算公式。
+\end{itemize}
+
+~
+
+\begin{definition}[排列和组合]
+从$n$个元素中任取$m$个元素（$m\leqslant n$）排成一有序列，称{\bf 从$n$个元素中取出$m$个元素的一个排列}，所有排列的个数称作{\bf 排列数}，记作$P_{n}^{m}$，有：
+\[
+P_{n}^{m}:=\frac{n!}{\left( n-m \right) !}=n\left( n-1 \right) \left( n-2 \right) \cdots \left[ n-\left( m-1 \right) \right]
+\]
+从$n$个元素中任取$m$个元素（$m\leqslant n$）组成一无序组，称{\bf 从$n$个元素中取出$m$个元素的一个组合}，所有组合的个数称作{\bf 组合数}，记作$C_{n}^{m}$，有：
+\[
+C_{n}^{m}:=\frac{n!}{\left( n-m \right) !\cdot m!}=\frac{P_{n}^{m}}{m!}
+\]
+特别地，$P_{n}^{1}=C_{n}^{1}=n,P_{n}^{n}=n!,C_{n}^{n}=1$。
+\end{definition}
+
+排列组合均是对“从$n$个元素中抽取$m$个元素”的计算，排列突出有序，组合突出无序。排列组合的关系还可以这么理解，当$m$个元素排列完成后，若不考虑其顺序，就是组合，由于每个排列有$P_{m}^{m}$种不同的顺序，所以：
+\[
+P_{n}^{m}=C_{n}^{m}\cdot P_{m}^{m}=C_{n}^{m}\cdot m!
+\]
+
+\begin{theorem}
+组合公式有以下性质：
+\begin{align*}
+&C_{n}^{m}=C_{n}^{n-m} \\
+&C_{n+1}^{m}=C_{n}^{m}+C_{n}^{m-1}
+\end{align*}
+\end{theorem}
+
+
+
+

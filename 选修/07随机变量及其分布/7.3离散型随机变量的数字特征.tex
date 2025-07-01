@@ -1,0 +1,419 @@
+\section{离散型随机变量的数字特征}
+
+本节要点：
+\begin{itemize}
+    \item 掌握数学期望的概念；
+    \item 理解数学期望的数学意义和物理意义；
+    \item 掌握方差的概念；
+    \item 理解方差的统计意义和物理意义。
+\end{itemize}
+
+%============================================================
+\subsection{离散型随机变量的均值}
+
+\begin{definition}[数学期望]
+设离散变量$X$有分布律$p_i$，若无穷级数$\sum_{i=1}^{+\infty}{x_i\cdot p_i}$绝对收敛（即$\sum_{i=1}^{+\infty}{\left| x_i\cdot p_i \right|}$收敛），则称该无穷级数为$X$的{\bf 数学期望}或{\bf 均值}，记作$E\left( X \right) $或$EX$：
+\[
+EX:=\sum_{i=1}^{+\infty}{x_i\cdot p_i}
+\]
+若离散变量取值为有限个，则必有数学期望。
+\end{definition}
+
+一般，我们用$E\left( X \right) $表示谓词，即计算$X$的数学期望这个过程，用$EX$表示名词，即数学期望这个值。$E$是Expectation的首字母。
+
+\begin{tcolorbox}
+级数有个现象，如果调换各项的顺序，收敛性可能发生改变，即便收敛，也可能收敛到不同的值，而在概率论中，随机变量的取值和顺序无关，所以这里要求绝对收敛。
+\end{tcolorbox}
+
+
+\begin{definition}[随机变量函数的数学期望]
+设离散变量$X$有分布律$p_i$，若有另一随机变量$Y=g\left( X \right) $，且无穷级数$\sum_{i=1}^{+\infty}{g\left( x_i \right) p_i}$绝对收敛，则称$E\left[ g\left( X \right) \right] $为{\bf 函数$Y=g\left( X \right) $的数学期望}：
+\[
+EY:=\sum_{i=1}^{+\infty}{g\left( x_i \right) \cdot p_i}
+\]
+\end{definition}
+
+该公式的意义在于，有时候我们很难获得$Y$的具体分布规律，但可以通过已知的$X$和$Y=g\left( X \right) $获得$Y$的数学期望。
+
+%============================================================
+\subsection{离散型随机变量的方差}
+
+\begin{definition}[方差]
+设离散型随机变量$X$，若函数$\left( X-EX \right) ^2$的数学期望存在，则称该数学期望为$X$的{\bf 方差}，记作$D\left( X \right) $或$DX$，即：
+\[
+DX:=E\left[ \left( X-EX \right) ^2 \right] =\sum_{i=1}^{+\infty}{\left( x_i-EX \right) ^2\cdot p_i}
+\]
+同时称$\sqrt{DX}$为{\bf $X$的平方差}。
+\end{definition}
+
+\begin{tcolorbox}
+方差的英文为Variance，有些教材使用$\mathrm{Var}\left( X \right) $作为记号。
+\end{tcolorbox}
+
+方差的求解较为繁琐，由于$\left( X-EX \right) ^2=X^2-2\cdot X\cdot EX+\left( EX \right) ^2$，且$EX$是常数，利用数学期望的性质可得便捷公式：
+\begin{align*}
+DX&=E\left[ X^2-2\cdot X\cdot EX+\left( EX \right) ^2 \right] \\
+&=E\left( X^2 \right) -2\cdot EX\cdot EX+\left( EX \right) ^2 \\
+&=E\left( X^2 \right) -\left( EX \right) ^2
+\end{align*}
+
+从便捷公式可以得到$\left[ E\left( X \right) \right] ^2$和$E\left( X^2 \right) $的关系：
+\[
+E\left( X^2 \right) =DX+\left( EX \right) ^2
+\]
+由于$DX\geqslant 0$，所以$E\left( X^2 \right) \geqslant \left( EX \right) ^2$。
+
+\begin{tcolorbox}
+由于数学期望的线性性，便捷公式的推导没有任何前置条件，所以被广泛使用，定义式则更多用来理解概念。
+\end{tcolorbox}
+
+%============================================================
+\subsection{拓展讨论：数学期望的数学意义}
+
+数学期望是随机变量的加权和，权重是概率，由于总概率为1，于是$EX<x_{+\infty}$，所以期望也称加权平均。任何一个给定的随机变量，若有数学期望，则都是一个固定的、可计算的常量。
+
+从线性代数看，数学期望是随机变量构成的向量及其分布规律构成的向量的标量积。以离散型随机变量为例：
+\begin{align*}
+&EX:=\sum_{i=1}^{+\infty}{x_ip_i}=\boldsymbol{x}^T\boldsymbol{p} \\
+&\begin{cases}
+	\boldsymbol{x}=\left( x_1,x_2,\cdots ,x_n,\cdots \right)\\
+	\boldsymbol{p}=\left( p_1,p_2,\cdots ,p_n,\cdots \right)\\
+\end{cases}
+\end{align*}
+$EX$越大表示$\boldsymbol{p}$和$\boldsymbol{x}$的契合度越高，或者说越靠后的事件越容易发生。
+
+\begin{tcolorbox}
+这里的数学意义更多是为意义而意义，是一个“形象的比喻”，不用太过深究。
+\end{tcolorbox}
+
+%============================================================
+\subsection{拓展讨论：数学期望的物理意义}
+
+考虑一维物体的转动。长度为$L$的细长杆质量$M$且分布不均匀，有线密度$\rho \left( x \right) ,x\in \left[ d,d+L \right] $，一端距原点$d$，绕原点匀速转动且有角速度$\omega $，分析所需的向心力。可以认为是同质量的质点在$x_0$处以通常角速度转动所需的向心力。
+
+可以假设细长杆的一个微元可视为质点，则向心力微元和整体向心力：
+\begin{align*}
+&dF=\rho \left( x \right) dx\cdot \omega ^2\cdot x\quad \left[ \mathrm{N} \right] \\
+&F=\int_d^{d+L}{dF}=\int_d^{d+L}{\rho \left( x \right) dx\cdot \omega ^2\cdot x}=\omega ^2\int_d^{d+L}{x\rho \left( x \right) \cdot dx}\quad \left[ \mathrm{N} \right]
+\end{align*}
+若将其视为质点，则向心力等价为质量$M$的质点小球在$x_0$处以角速度$\omega $匀速转动，有：
+\[
+\omega ^2\int_d^{d+L}{x\rho \left( x \right) \cdot dx}=M\cdot \omega ^2\cdot x_0\quad \left[ \mathrm{N} \right]
+\]
+于是可得：
+\[
+x_0=\frac{\int_d^{d+L}{x\rho \left( x \right) \cdot dx}}{M}=\int_d^{d+L}{x\frac{\rho \left( x \right)}{M}\cdot dx}\quad \left[ \mathrm{m} \right]
+\]
+对比一维变量的数学期望定义式：
+\[
+EX=\int_{-\infty}^{+\infty}{xf\left( x \right) \cdot dx}
+\]
+{\bf 数学期望的物理意义为绕原点匀速转动时的质心位置，有量纲$\left[ \mathrm{m} \right] $}。
+
+%============================================================
+\subsection{拓展讨论：数学期望的性质}
+
+{\bf 性质1}：常数的数学期望为其本身，即$E\left( c \right) =c$。
+
+{\bf 性质2}：$X\geqslant a\Rightarrow EX\geqslant a,X\leqslant a\Rightarrow EX\leqslant a$
+
+{\bf 性质3}：$E\left( kX \right) =k\cdot E\left( X \right) $
+
+{\bf 性质4}：$E\left( kX+c \right) =k\cdot E\left( X \right) +c$，由性质1+3可证。
+
+{\bf 性质5}：设$\left( X,Y \right) $为二维随机变量，则$E\left( X\pm Y \right) =E\left( X \right) \pm E\left( Y \right) $
+
+{\bf 性质6}：设$\left( X,Y \right) $为二维随机变量，若$X,Y$相互独立$\Rightarrow E\left( XY \right) =E\left( X \right) \cdot E\left( Y \right) $
+
+{\bf 性质7}：设$\left( X,Y \right) $为二维随机变量，则$\left[ E\left( XY \right) \right] ^2\leqslant E\left( X^2 \right) \cdot E\left( Y^2 \right) $
+
+~
+
+性质1表示了常数$c$的分布，其实就是质点小球，自然质心位置为$c$。
+
+性质2表示了质心的范围，物理意义也很明显，质心位置肯定不会落到物体之外。
+
+性质3表达当{\it x}轴拉伸时，质心也有同样的拉伸，压缩亦然。
+
+\begin{tcolorbox}
+这三个性质可结合物理意义理解。
+\end{tcolorbox}
+
+性质5用定义即可证明：
+\begin{align*}
+E\left( X\pm Y \right) &=\sum_{i=1}^{+\infty}{\sum_{j=1}^{+\infty}{\left( x_i\pm y_j \right) \cdot p_{ij}}}=\sum_{i=1}^{+\infty}{\sum_{j=1}^{+\infty}{\left( x_ip_{ij}\pm y_jp_{ij} \right)}} \\
+&=\sum_{i=1}^{+\infty}{\sum_{j=1}^{+\infty}{x_ip_{ij}}}\pm \sum_{i=1}^{+\infty}{\sum_{j=1}^{+\infty}{y_jp_{ij}}} \\
+&=E\left( X \right) \pm E\left( Y \right)
+\end{align*}
+
+性质6，独立则有$p_{ij}=p_{i\cdot}\cdot p_{\cdot j}$，于是：
+\begin{align*}
+E\left( XY \right) &=\sum_{i=1}^{+\infty}{\sum_{j=1}^{+\infty}{\left( x_iy_j \right) \cdot p_{ij}}}=\sum_{i=1}^{+\infty}{\sum_{j=1}^{+\infty}{\left( x_iy_j \right) \cdot p_{i\cdot}\cdot p_{\cdot j}}} \\
+&=\sum_{i=1}^{+\infty}{\left( x_ip_{i\cdot}\cdot \sum_{j=1}^{+\infty}{y_jp_{\cdot j}} \right)}=\sum_{i=1}^{+\infty}{\left[ x_ip_{i\cdot}\cdot E\left( Y \right) \right]} \\
+&=E\left( X \right) \cdot E\left( Y \right)
+\end{align*}
+
+\begin{tcolorbox}
+数学期望的性质常用于随机变量组合成新变量的数学期望的计算。由于数学期望是线性运算，所以有
+\[
+E\left( aX+bY+c \right) =aEX+bEY+c
+\]
+但对于非线性组合，会有一些前置条件或者为不等式。
+\end{tcolorbox}
+
+\begin{tcolorbox}
+$\left( EX \right) ^2$不大于$E\left( X^2 \right) $，证明关系留到介绍方差后再给出。
+\end{tcolorbox}
+
+%============================================================
+\subsection{拓展讨论：数学期望的范围}
+
+数学期望的范围是变量的范围，这点从数学期望的物理意义也很好理解，特别是当变量的分布为常数分布时，取到最大值。此时，随机事件变成确定性事件。对应地，函数的数学期望的范围是函数的值域。
+
+%============================================================
+\subsection{拓展讨论：中位数的概念}
+
+\begin{definition}[中位数]
+若随机变量$X$有分布函数$F\left( x \right) $，若$m$满足
+\[
+F\left( m \right) =\frac{1}{2}
+\]
+则称$m$为{\bf 随机变量$X$的中位数}。
+\end{definition}
+
+数学期望和中位数都反映了随机变量的一个均值情况。中位数表示了该点前后的概率是一样的，优点是受特大值、特小值影响小，而且必然存在，缺点是处理不方便（如两个随机变量加减乘除后的中位数），而且不唯一，特别在离散型随机变量，由于取值的离散型，中位数大多不会精确的存在。
+
+从物理意义上理解，数学期望反映的是质心，考虑了质点的力矩，而中位数不考虑力矩的影响。
+
+与中位数相关的还有一个概念，上侧$\alpha $分位点。
+
+%============================================================
+\subsection{拓展讨论：方差的数学由来和统计意义}
+
+方差定义中，$X-EX$是根本，表示了随机变量$X$和它的均值$EX$的偏离程度。由于$E\left( X-EX \right) =E\left( X \right) -EX=0$，总是为0，所以我们取绝对值$\left| X-EX \right|$，又由于绝对值函数在0点不可导，所以我们替换成平方$\left( X-EX \right) ^2$定义方差。
+
+方差描述了随机变量$X$偏离其数学期望的程度，$DX$越小，说明离散程度越小。
+
+%============================================================
+\subsection{拓展讨论：方差的物理意义}
+
+考虑一维物体的转动。长度为$L$的细长杆质量$M$且分布不均匀，有线密度$\rho \left( x \right) ,x\in \left[ d,d+L \right] $，一端距原点$d$，绕原点转动。
+
+其转动惯量$I$有：
+\[
+I=\int{x^2\cdot dM}=\int_d^{d+L}{x^2\cdot \rho \left( x \right) \cdot dx} \quad \left[ \mathrm{kg}\cdot \mathrm{m}^2 \right]
+\]
+若将转轴移到质心$x_0$ ，根据平行轴定理，新的转动惯量$I_{x_0}$有：
+\begin{align*}
+&\because I=I_{x_0}+{Mx_0}^2 \\
+&\therefore \int_d^{d+L}{x^2\cdot \rho \left( x \right) \cdot dx}=I_{x_0}+{Mx_0}^2 \\
+&\therefore \int_d^{d+L}{x^2\cdot \frac{\rho \left( x \right)}{M}\cdot dx}=\frac{I_{x_0}}{M}+{x_0}^2
+\end{align*}
+对比方差的便捷计算公式：
+\[
+E\left( X^2 \right) =\int_{-\infty}^{+\infty}{x^2f\left( x \right) \cdot dx}=DX+\left( EX \right) ^2
+\]
+显然，{\bf 方差的物理意义可以理解为物体以质心为原点时的单位质量的转动惯量，有量纲$\left[ \mathrm{m}^2 \right] $}。跟物理的转动惯量不一样，没有质量这个因子，所以描述的是一种和具体质量无关的惰性，这种惰性和分布有关，$DX$越大，说明分布越靠外，转动惯量也越大。
+
+%============================================================
+\subsection{拓展讨论：方差的性质}
+
+{\bf 性质1}：常数的方差为0，即$D\left( c \right) =0$。
+
+{\bf 推论}：$D\left( X \right) \geqslant 0$，当且仅当$P\left\{ X=EX \right\} =1$时（即常数分布），等号成立。
+
+{\bf 性质2}：$D\left( kX \right) =k^2\cdot DX$
+
+{\bf 性质3}：$D\left( kX+c \right) =k^2\cdot DX$，由性质1，2可得。
+
+{\bf 性质4}：设$\left( X,Y \right) $为二维随机变量，
+
+若$X,Y$相互独立$\Rightarrow D\left( X\pm Y \right) =DX+DY$
+
+进一步地，若$X,Y$相互独立$\Rightarrow D\left( aX\pm bY \right) =a^2\cdot DX+b^2\cdot DY$
+
+~
+
+性质1，对于常数分布，质心就是$c$，显然绕质心的转动惯量为0。
+
+性质2，若$X\rightarrow kX$，相当于直线被拉长$k$倍，自然转动惯量扩大了$k^2$倍。
+
+\begin{tcolorbox}
+上述性质可结合物理意义理解。
+\end{tcolorbox}
+
+性质4，证明如下：
+\begin{align*}
+&\because DX=E\left( X^2 \right) -\left( EX \right) ^2 \\
+&\begin{aligned}
+	\therefore D\left( X\pm Y \right) &=E\left[ \left( X\pm Y \right) ^2 \right] -E\left[ \left( X\pm Y \right) \right] \cdot E\left[ \left( X\pm Y \right) \right]\\
+	&=E\left[ X^2\pm 2XY+Y^2 \right] -\left[ EX\pm EY \right] ^2\\
+	&=\left[ E\left( X^2 \right) \pm 2E\left( XY \right) +E\left( Y^2 \right) \right] -\\
+	&\left[ \left( EX \right) ^2\pm 2\left( EX \right) \left( EY \right) +\left( EY \right) ^2 \right]\\
+\end{aligned} \\
+&\because E\left( XY \right) =\left( EX \right) \left( EY \right) \\
+&\begin{aligned}
+	\therefore D\left( X\pm Y \right) &=\left[ E\left( X^2 \right) -\left( EX \right) ^2 \right] +\left[ E\left( Y^2 \right) -\left( EY \right) ^2 \right]\\
+	&=DX+DY\\
+\end{aligned}
+\end{align*}
+
+%============================================================
+\subsection{拓展讨论：方差的取值范围}
+
+变量的方差的取值范围根据不同的分布有不同的范围。如常数分布，中心点转动惯量必然为0。又如$P\left\{ X=\pm \infty \right\} =0.5$，显然转动惯量$+\infty $ 。
+
+%============================================================
+\subsection{拓展讨论：随机变量的标准化}
+
+\begin{definition}[随机变量的标准化]
+设随机变量$X$有数学期望$EX$和方差$DX>0$，若将$X$进行运算$\frac{X-EX}{\sqrt{DX}}$，获得的随机变量称为{\bf $X$的标准化随机变量}，记作$X^*$，即：
+\[
+X^*=\frac{X-EX}{\sqrt{DX}}
+\]
+且有：
+\begin{align*}
+&E\left( X^* \right) =E\left( \frac{X-EX}{\sqrt{DX}} \right) =\frac{1}{\sqrt{DX}}\cdot E\left( X-EX \right) =0 \\
+&D\left( X^* \right) =D\left( \frac{X-EX}{\sqrt{DX}} \right) =\frac{1}{DX}\cdot D\left( X-EX \right) =1
+\end{align*}
+\end{definition}
+
+~
+
+考察标准化过程：
+\begin{itemize}
+    \item $X-EX$:表示将坐标原点拉到期望$EX$的位置，即原点对称；
+    \item $\frac{1}{\sqrt{DX}}$：拉伸或收缩{\it x}轴，使得分布不过于稀疏或稠密。
+\end{itemize}
+排除这两个“干扰”后，很多初看起来不同的分布，实际是一类分布，有利于后续的进一步分析。如不同的正态分布，标准化之后就是标准正态分布。
+
+%============================================================
+\subsection{习题}
+
+\begin{example}[复习巩固3，难度：$\star $]
+随机变量$X$的分布列为$P\left( X=0 \right) =0.2,P\left( X=1 \right) =a,P\left( X=2 \right) =b$。
+若$E\left( X \right) =1$，求$a$和$b$。
+\end{example}
+
+解：
+
+由均值的定义可得：
+\begin{align*}
+&E\left( X \right) =0.2\cdot 0+a\cdot 1+b\cdot 2=1 \\
+&a+2b=1
+\end{align*}
+作为概率还必须满足：
+\[
+0.2+a+b=1
+\]
+解得$a=0.6,b=0.2$。
+
+\begin{tcolorbox}
+本题考察均值的概念，没有难度。
+\end{tcolorbox}
+
+~
+
+\begin{example}[综合运用6，难度：$\star \star $]
+有A和B两道谜语，张某猜对A谜语的概率为0.8，猜对得奖金10元；猜对B谜语的概率为0.5，猜对得奖金20元。规则规定：只有在猜对第一道谜语的情况下，才有资格猜第二道。如果猜谜顺序由张某选择，他应该选择先猜哪一道谜语？
+\end{example}
+
+解：
+
+若从A谜语开始，平均能获得：
+\begin{align*}
+&P\left\{ X=0 \right\} =\left( 1-0.8 \right) =0.2 \\
+&P\left\{ X=10 \right\} =0.8\cdot \left( 1-0.5 \right) =0.4 \\
+&P\left\{ X=30 \right\} =0.8\cdot 0.5=0.4 \\
+&E\left( X \right) =0\cdot 0.2+10\cdot 0.4+30\cdot 0.4=16
+\end{align*}
+若从B谜语开始，平均能获得：
+\begin{align*}
+&P\left\{ X=0 \right\} =\left( 1-0.5 \right) =0.5 \\
+&P\left\{ X=20 \right\} =0.5\cdot \left( 1-0.8 \right) =0.1 \\
+&P\left\{ X=30 \right\} =0.5\cdot 0.8=0.4 \\
+&E\left( X \right) =0\cdot 0.5+20\cdot 0.1+30\cdot 0.4=14
+\end{align*}
+可见从A谜语开始获得总金额可能高一些。
+
+\begin{tcolorbox}
+本题考察均值的实际应用。
+\end{tcolorbox}
+
+~
+
+\begin{example}[综合运用7，难度：$\star $]
+甲、乙两种品牌的手表，它们的日走时误差分别为$X$和$Y$（单位：$s$），其分布列为
+
+\begin{table}[h]
+\centering
+\begin{tabular}{cccc}
+    \toprule
+    $X$ & -1 & 0 & 1\\
+    % \midrule
+    $P$ & 0.1 & 0.8 & 0.1\\
+    \bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{cccccc}
+    \toprule
+    $X$ & -2 & -1 & 0 & 1 & 2\\
+    % \midrule
+    $P$ & 0.1 & 0.2 & 0.4 & 0.2 & 0.1\\
+    \bottomrule
+\end{tabular}
+\end{table}
+
+试比较甲、乙两种品牌手表的性能。
+\end{example}
+
+解：
+\begin{align*}
+E\left( X \right) &=E\left( Y \right) =0 \\
+D\left( X \right) &=E\left( X^2 \right) -\left( EX \right) ^2 \\
+&=\left( -1 \right) ^2\cdot 0.1+0^2\cdot 0.8+1^2\cdot 0.1-0 \\
+&=0.2 \\
+D\left( Y \right) &=E\left( Y^2 \right) -\left( EY \right) ^2 \\
+&=\left( -2 \right) ^2\cdot 0.1+\left( -1 \right) ^2\cdot 0.2+0^2\cdot 0.4+1^2\cdot 0.2+2^2\cdot 0.1-0 \\
+&=1.2
+\end{align*}
+甲乙平均误差一样，但甲的稳定性高。
+
+\begin{tcolorbox}
+本题考察方差的意义。
+\end{tcolorbox}
+
+~
+
+\begin{example}[拓广探索8，难度：$\star \star $]
+设$E\left( X \right) =\mu $，$a$是不等于$\mu $的常数，探究$X$相对于$\mu $的偏离程度与$X$相对于$a$的偏离程度的大小关系，并说明结论的意义。
+\end{example}
+
+解：
+
+$X$相对于$\mu $的偏离程度即为方差$D\left( X \right) =E\left( X^2 \right) -\left( EX \right) ^2=E\left( X^2 \right) -\mu ^2$，$X$相对于$a$的偏离程度如下：
+\begin{align*}
+E\left[ \left( X-a \right) ^2 \right] &=E\left[ \left( X-\mu +\left( \mu +a \right) \right) ^2 \right] \\
+&=E\left[ X^2-2\cdot X\cdot a+a^2 \right] \\
+&=E\left( X^2 \right) -2a\cdot EX+E\left( a^2 \right) \\
+&=E\left( X^2 \right) -2a\cdot \mu +a^2
+\end{align*}
+易得：
+\begin{align*}
+D\left( X \right) -E\left[ \left( X-a \right) ^2 \right] &=\left[ E\left( X^2 \right) -\mu ^2 \right] -\left[ E\left( X^2 \right) -2a\cdot \mu +a^2 \right] \\
+&=-\mu ^2+2a\cdot \mu -a^2 \\
+&=-\left( \mu -a \right) ^2<0
+\end{align*}
+
+意义可以根据转动惯量说明，略。
+
+\begin{tcolorbox}
+本题考查方差的意义——偏离程度，抓住这一点，就可以列出“相对于$a$的偏离程度”的表达式。
+\end{tcolorbox}
+
+
+
+

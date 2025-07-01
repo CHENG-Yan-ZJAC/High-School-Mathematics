@@ -1,0 +1,65 @@
+\section{空间向量及其运算的坐标表示}
+
+本节要点：
+\begin{itemize}
+    \item 掌握向量运算的坐标表示。
+\end{itemize}
+
+%============================================================
+\subsection{空间直角坐标系}
+
+和平面向量一样，当我们定义了空间直角坐标系后，可以得到空间向量的3个等价表示方法：
+\begin{itemize}
+    \item $\overrightarrow{AB}$：表示三维空间的有向线段；
+    \item $x\boldsymbol{i}+y\boldsymbol{j}+z\boldsymbol{k}$：表示{\it xyz}坐标系中的有向线段；
+    \item $\left( x,y,z \right) $：表示{\it xyz}坐标系中的点。
+\end{itemize}
+
+\begin{tcolorbox}
+这里要注意一点，直角坐标系的右手性是人为规定的。
+\end{tcolorbox}
+
+%============================================================
+\subsection{空间向量运算的坐标系表示}
+
+加法、数乘、内积的坐标表示如下：
+\begin{align*}
+&\boldsymbol{a}+\boldsymbol{b}=\left( x_{\boldsymbol{a}}+x_{\boldsymbol{b}} \right) \boldsymbol{i}+\left( y_{\boldsymbol{a}}+y_{\boldsymbol{b}} \right) \boldsymbol{j}+\left( z_{\boldsymbol{a}}+z_{\boldsymbol{b}} \right) \boldsymbol{k} \\
+&\lambda \boldsymbol{a}=\lambda x_{\boldsymbol{a}}\boldsymbol{i}+\lambda y_{\boldsymbol{a}}\boldsymbol{j}+\lambda z_{\boldsymbol{a}}\boldsymbol{k} \\
+&\boldsymbol{a}\cdot \boldsymbol{b}=x_{\boldsymbol{a}}\cdot x_{\boldsymbol{b}}+y_{\boldsymbol{a}}\cdot y_{\boldsymbol{b}}+z_{\boldsymbol{a}}\cdot z_{\boldsymbol{b}}=\left| \boldsymbol{a} \right|\left| \boldsymbol{b} \right|\cos \alpha
+\end{align*}
+
+%============================================================
+\subsection{习题}
+
+\begin{example}[拓广探索9，难度：$\star \star $]
+$\left\{ \boldsymbol{a},\boldsymbol{b},\boldsymbol{c} \right\} $是空间的一个单位正交基底，向量$\boldsymbol{p}=\boldsymbol{a}+2\boldsymbol{b}+3\boldsymbol{c}$，$\left\{ \boldsymbol{a}+\boldsymbol{b},\boldsymbol{a}-\boldsymbol{b},\boldsymbol{c} \right\} $是空间的另一个基底，用$\left\{ \boldsymbol{a}+\boldsymbol{b},\boldsymbol{a}-\boldsymbol{b},\boldsymbol{c} \right\} $表示向量$\boldsymbol{p}$。
+\end{example}
+
+解：
+
+$\boldsymbol{p}$在新坐标系下可表示为：
+\[
+\boldsymbol{p}=x\left( \boldsymbol{a}+\boldsymbol{b} \right) +y\left( \boldsymbol{a}-\boldsymbol{b} \right) +z\boldsymbol{c}=\left( x+y \right) \boldsymbol{a}+\left( x-y \right) \boldsymbol{b}+z\boldsymbol{c}
+\]
+于是：
+\begin{align*}
+&\begin{cases}
+	x+y=1\\
+	x-y=2\\
+	z=3\\
+\end{cases}\Rightarrow \begin{cases}
+	x=\frac{3}{2}\\
+	y=-\frac{1}{2}\\
+	z=3\\
+\end{cases} \\
+&\boldsymbol{p}=\frac{3}{2}\left( \boldsymbol{a}+\boldsymbol{b} \right) -\frac{1}{2}\left( \boldsymbol{a}-\boldsymbol{b} \right) +3\boldsymbol{c}
+\end{align*}
+
+\begin{tcolorbox}
+本题其实是对空间向量基本定理的拓展，任意向量在不同基下有不同的表示，但向量还是那个向量。
+\end{tcolorbox}
+
+
+
+

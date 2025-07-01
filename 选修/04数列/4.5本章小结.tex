@@ -1,0 +1,55 @@
+\section{本章小结}
+
+本章介绍数列，特别介绍了两个数列：等差数列和等比数列。本章有两个难点，$a_n$一般不会直接是等差或等比，而是加上一个偏移量或倒数后构成等差或等比，其次要注意等差和等比的平均数。
+
+%============================================================
+\subsection{习题}
+
+\begin{example}[综合运用12，难度：$\star \star $]
+已知数列$\left\{ a_n \right\} $的前$n$项的和为$S_n$，且$a_{n+1}=2S_n+2,n\in \mathbb{N} ^+$。
+\begin{enumerate}
+    \item 求数列$\left\{ a_n \right\} $的通项公式。
+    \item 在$a_n$与$a_{n+1}$之间插入$n$个数，使这$n+2$个数组成一个公差为$d_n$的等差数列，在数列$\left\{ d_n \right\} $中是否存在3项$d_m,d_k,d_p$（其中	$m,k,p$成等差数列）成等比数列？若存在，求出这样的3项；若不存在，请说明理由。
+\end{enumerate}
+\end{example}
+
+解：
+
+（1）先分析表达式：
+\begin{align*}
+&\because a_{n+1}=2S_n+2 \quad a_n=2S_{n-1}+2 \\
+&\therefore a_{n+1}-a_n=2a_n \\
+&\therefore a_n=a_1\cdot 3^{n-1}
+\end{align*}
+可见是等比数列，再求首项：
+\begin{align*}
+&\because a_{n+1}=2S_n+2 \\
+&\therefore a_2=2a_1+2 \\
+&\therefore 3a_1=2a_1+2 \\
+&\therefore a_1=2
+\end{align*}
+最终得到$a_n=2\cdot 3^{n-1}$。
+
+（2）
+\begin{align*}
+&\because a_n=2\cdot 3^{n-1},a_{n+1}=2\cdot 3^n \\
+&\therefore d_n=\frac{2\cdot 3^n-2\cdot 3^{n-1}}{n+1}=\frac{4\cdot 3^{n-1}}{n+1} \\
+&\because d_m\cdot d_p={d_k}^2 \\
+&\therefore \frac{4\cdot 3^{m-1}}{m+1}\cdot \frac{4\cdot 3^{p-1}}{p+1}=\frac{4\cdot 3^{k-1}}{k+1}\frac{4\cdot 3^{k-1}}{k+1} \\
+&\because m+p=2k \\
+&\therefore \frac{3^{2k-2}}{mn+2k+1}=\frac{3^{2k-2}}{k^2+2k+1} \\
+&\therefore mn=k^2
+\end{align*}
+得到$m+p=2k$且$mp=k^2$，联立两式得：
+\[
+\left( m-p \right) ^2=0
+\]
+不存在。
+
+\begin{tcolorbox}
+本题难度不大，但较为复杂。
+\end{tcolorbox}
+
+
+
+

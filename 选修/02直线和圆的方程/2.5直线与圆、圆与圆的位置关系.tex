@@ -1,0 +1,98 @@
+\section{直线与圆、圆与圆的位置关系}
+
+本节要点：
+\begin{itemize}
+    \item 从代数角度深刻理解线圆位置关系；
+    \item 从代数角度深刻理解圆圆位置关系。
+\end{itemize}
+
+%============================================================
+\subsection{直线与圆的位置关系}
+
+我们可以根据线圆位置关系的定义总结出判定定理。
+
+\begin{theorem}
+设二维平面有直线$l$和圆$C$，将直线方程带入圆方程得到一个关于$x$或$y$的一元二次方程，则有：
+\begin{itemize}
+    \item $\varDelta >0\Leftrightarrow \text{直线和圆相交}$；
+    \item $\varDelta =0\Leftrightarrow \text{直线和圆相切}$；
+    \item $\varDelta <0\Leftrightarrow \text{直线和圆相离}$。
+\end{itemize}
+\end{theorem}
+
+%============================================================
+\subsection{圆与圆的位置关系}
+
+同上，我们可以总结出判定定理。
+
+\begin{theorem}
+设二维平面有两个圆$C_1,C_2$，将两个圆方程合并后得到一个关于$x$或$y$的一元二次方程，则有：
+\begin{itemize}
+    \item $\varDelta >0\Leftrightarrow \text{圆和圆相交}$；
+    \item $\varDelta =0\Leftrightarrow \text{圆和圆相切}$；
+    \item $\varDelta <0\Leftrightarrow \text{圆和圆相离}$。
+\end{itemize}
+\end{theorem}
+
+这里需要注意：
+\begin{itemize}
+    \item 两个圆的方程可能是一模一样，说明两个圆重合，该判定定理自然无法使用；
+    \item 相切可能是外切，也可能是内切，需要结合圆心距离进一步判定；
+    \item 相离也是有外部和内部两个可能，同样需要结合圆心距判定。
+\end{itemize}
+
+%============================================================
+\subsection{拓展讨论：两个圆方程相减的图形}
+
+设两圆$C_1,C_2$相交，将它们的一般方程相减必然得到一直线方程，也即两个交点确定一条直线，这点毋庸置疑，而且几何意义也十分清楚。
+
+那么将两圆方程相加呢？由于二次项不能抵消，必然也是一个圆，用标准方程推导可以直观地看清圆心和半径。设两圆$C_1,C_2$如下：
+\[
+\begin{cases}
+	\left( x-x_1 \right) ^2+\left( y-y_1 \right) ^2={r_1}^2\\
+	\left( x-x_2 \right) ^2+\left( y-y_2 \right) ^2={r_2}^2\\
+\end{cases}
+\]
+相加，化简后：
+\[
+\left( x-\frac{x_1+x_2}{2} \right) ^2+\left( y-\frac{y_1+y_2}{2} \right) ^2=\frac{{r_1}^2+{r_2}^2}{2}-\frac{\left( x_1-x_2 \right) ^2+\left( y_1-y_2 \right) ^2}{4}
+\]
+其中$\left( x_1-x_2 \right) ^2+\left( y_1-y_2 \right) ^2$为圆心距，所以也可以表示为：
+\[
+\left( x-\frac{x_1+x_2}{2} \right) ^2+\left( y-\frac{y_1+y_2}{2} \right) ^2=\frac{{r_1}^2+{r_2}^2}{2}-\frac{C_1{C_2}^2}{4}
+\]
+所以，两个圆方程相加的方程表示一个圆$C_3$，圆心和半径如下：
+\begin{align*}
+&\left( x_3,y_3 \right) =\left( \frac{x_1+x_2}{2},\frac{y_1+y_2}{2} \right) \\
+&{r_3}^2=\frac{{r_1}^2+{r_2}^2}{2}-\frac{C_1{C_2}^2}{4} \qquad C_1C_2\in \left[ \left| r_1-r_2 \right|,r_1+r_2 \right]
+\end{align*}
+$r_3\in \left[ \frac{\left| r_1-r_2 \right|}{2},\frac{r_1+r_2}{2} \right] $，分别当两圆内切和外切时，取到区间两侧。圆心非常好理解，半径较难理解，我们从向量的角度出发研究。
+
+如下图，圆$C_1,C_2$交于$M,N$，新圆的圆心为$C_3$：
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[line join=round, scale=0.75]
+\coordinate[label=below:{$C_1$}] (C1) at (0,0);
+\coordinate[label=below:{$C_2$}] (C2) at (2,0);
+\coordinate[label=below:{$C_3$}] (C3) at (1,0);
+\draw[thick,name path=c1] (C1) circle (2);
+\draw[thick,name path=c2] (C2) circle (1.5);
+\path[name intersections={of=c1 and c2}]
+    coordinate[label=above:{$M$}] (M) at (intersection-1)
+    coordinate[label=below:{$N$}] (N) at (intersection-2);
+\draw (C1)--(M)--(C2)--(C1) (M)--(C3);
+\end{tikzpicture}
+\end{figure}
+
+\begin{align*}
+&\because \left| \overrightarrow{MC_3} \right|=\left| \overrightarrow{MC_1}+\overrightarrow{MC_2} \right|/2 \\
+&\therefore \left| \overrightarrow{MC_3} \right|^2=\frac{{r_1}^2+{r_2}^2+\overrightarrow{MC_1}\cdot \overrightarrow{MC_2}}{4} \\
+&\because \left| \overrightarrow{C_1C_2} \right|=\left| \overrightarrow{MC_2}-\overrightarrow{MC_1} \right| \\
+&\therefore \left| \overrightarrow{C_1C_2} \right|^2={r_1}^2+{r_2}^2-\overrightarrow{MC_1}\cdot \overrightarrow{MC_2} \\
+&\therefore \left| \overrightarrow{MC_3} \right|^2=\frac{{r_1}^2+{r_2}^2+\left( {r_1}^2+{r_2}^2-\left| \overrightarrow{C_1C_2} \right|^2 \right)}{4}
+\end{align*}
+
+
+
+

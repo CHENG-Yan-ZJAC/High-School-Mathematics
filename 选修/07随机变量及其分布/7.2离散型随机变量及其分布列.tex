@@ -1,0 +1,168 @@
+\section{离散型随机变量及其分布列}
+
+本节要点：
+\begin{itemize}
+    \item 掌握一维离散型随机变量及其分布律的概念；
+    \item 掌握0-1分布的概念。
+\end{itemize}
+
+~
+
+\begin{definition}[一维随机变量]
+设随机试验$E$的样本空间为$\varOmega $，若每个样本点$\omega$均有唯一确定的实数$X$与之对应，则称$X$为{\bf 定义在$\varOmega $上的一维随机变量}，也称{\bf 随机变量}或简称{\bf 变量}。
+\end{definition}
+
+随机变量将对样本点的文字描述投射到实数，注意，这里投射的是样本点，或者说是基本事件，而非任意事件。$X$的值在有些情况下可直观地赋予，如次品数量、人流数量、等待时间，但在有些情况下是人为赋予的，并没有特别的物理意义，如抛硬币的正反面，此时只要保证“唯一”、“确定”两个要求即可。
+
+于是，我们将事件$A$及其概率$P\left( A \right) $和变量$X$的取值范围$D$的概率$P\left\{ X\in D \right\} $等价起来：
+\[
+\begin{array}{l}
+	\omega\\
+	A\\
+	P\left( A \right)\\
+\end{array}\Leftrightarrow \begin{array}{l}
+	X\\
+	X\in D\\
+	P\left\{ X\in D \right\}\\
+\end{array}
+\]
+一维随机变量可视作一种特殊的变量，虽然其取值范围可以为$\mathbb{R} $，但与普通变量相比有如下特殊性：
+\begin{itemize}
+    \item 根据具体试验，随机变量有意义的取值是人为设定且事先已知的；
+    \item 但是在试验前，具体的取值无法预知；
+    \item 我们能知道的是每个取值的概率。
+\end{itemize}
+
+\begin{definition}[分布函数]
+设有随机变量$X$，对于$\forall x\in \mathbb{R} $，若$P\left\{ X\leqslant x \right\} $均有唯一的值与之对应，则称该对应关系为{\bf $X$的分布函数}，记作$F\left( x \right) $，即：
+\[
+F\left( x \right) := P\left\{ X\leqslant x \right\} ,\qquad x\in \mathbb{R}
+\]
+\end{definition}
+
+分布函数描述了$X$每个取值之前（包括该值）的所有概率之和，所以分布函数的差可以描述变量在一个范围内的概率，即$X$在$\left( a,b \right] $的概率可以表示为：
+\[
+P\left\{ a<X\leqslant b \right\} =F\left( b \right) -F\left( a \right)
+\]
+分布函数的定义还隐含了判断一个函数能否被视为分布函数的充要条件：
+\[
+F\left( X \right) \text{是分布函数}\Leftrightarrow \begin{cases}
+	0\leqslant F\left( x \right) \leqslant 1\\
+	\underset{x\rightarrow -\infty}{\lim}F\left( x \right) =P\left( \oslash \right) =0\\
+	\underset{x\rightarrow +\infty}{\lim}F\left( x \right) =P\left( \varOmega \right) =1\\
+\end{cases}
+\]
+分布函数还有以下性质：
+\begin{itemize}
+    \item $F\left( x \right) $必单调增，即$x_1<x_2\Rightarrow F\left( x_1 \right) \leqslant F\left( x_2 \right) $；
+    \item $F\left( x \right) $每个点$x_0$均右连续，即$\underset{x\rightarrow {x_0}^+}{\lim}F\left( x \right) =F\left( x_0 \right) $。
+\end{itemize}
+
+这里需要理解$X,x$两者的区别。$x$是普通变量，取值范围为$\mathbb{R} $，本身不承担物理意义，而$X$是随机变量，有意义的取值范围通过事件规定。如投硬币中，我们规定$X=1$表示正面向上，$X=0$表示反面向上，$X$取0、1之外的值是没有意义的，或者说$P\left\{ X\ne 0\mathrm{or}1 \right\} =0$。
+
+至此，我们将之前的概念和函数的概念统一了起来，我们用变量代替样本，用函数描述概率。
+\begin{table}[h]
+\centering
+\begin{tabular}{ll}
+    \toprule
+    \multicolumn{1}{c}{事件} & \multicolumn{1}{c}{变量}  \\
+    \midrule
+    样本点$\omega $ & 随机变量$X$\\
+    样本空间$\varOmega $ & $\mathbb{R} $\\
+    随机事件$A$ & 取值范围，如$\left\{ X=1 \right\} ,\left\{ X\geqslant b \right\} ,\left\{ a<X\leqslant b \right\} $\\
+    概率$P\left( A \right) $ & 分布函数的差，如$P\left\{ a<X\leqslant b \right\} =F\left( b \right) -F\left( a \right) $\\
+    \bottomrule
+\end{tabular}
+\end{table}
+
+\begin{definition}[一维离散型随机变量]
+若一维随机变量$X$的取值为有限个或可列无穷多个，则称$X$为{\bf 一维离散型随机变量}，简称{\bf 离散变量}。设可能的取值为$x_1,x_2,\cdots ,x_i,\cdots $，且对应的概率记作：
+\[
+P\left\{ X=x_i \right\} =p_i
+\]
+称序列$p_i$为$X$的{\bf 分布律}或{\bf 概率分布}，可用表格展现，或记作：
+\[
+X\sim \left( \begin{matrix}
+	x_1&		x_2&		\cdots&		x_i&		\cdots\\
+	p_1&		p_2&		\cdots&		p_i&		\cdots\\
+\end{matrix} \right)
+\]
+其中：
+\begin{itemize}
+    \item $x_i$：纯数学记号，对应基本事件$A_i$，通常为简化讨论，$x_i$取值为非负整数，分布律的计算通常基于上一章的讨论；
+    \item $p_i=P\left\{ X=x_i \right\} =P\left( A_i \right) $：表示基本事件$A_i$的发生概率。
+\end{itemize}
+\end{definition}
+
+若离散变量$X$有分布律$p_i$，则其分布函数为：
+\[
+F\left( x \right) =P\left\{ X\leqslant x \right\} =\sum_{x_i\leqslant x}{p_i}
+\]
+由分布函数的充要条件可得$p_i$成为分布律的充要条件：
+\[
+p_i\text{为分布律}\Leftrightarrow \begin{cases}
+	p_i\geqslant 0\\
+	\sum_i{p_i}=1\\
+\end{cases}
+\]
+
+~
+
+{\bf 0-1分布}又称{\bf 两点分布}，记作$B\left( 1,p \right) $，描述最简单的分布：
+\begin{align*}
+&P\left\{ X=1 \right\} =p\\
+&P\left\{ X=0 \right\} =1-p
+\end{align*}
+更普遍地记作：
+\[
+P\left\{ X=x \right\} =p^x\left( 1-p \right) ^{1-x},\qquad \begin{array}{l}
+	x=0,1\\
+	p\in \left( 0,1 \right)\\
+\end{array}
+\]
+其中：
+\begin{itemize}
+    \item $x$：一般取0表示事件不发生，1表示事件发生；
+    \item $p$：表示事件发生的概率。
+\end{itemize}
+特别地，当$p=0\mathrm{or}1$时称为{\bf 常数分布}。常数分布表示了事件100\%发生，所以无实际用途，只是为了完善概念而提出。
+
+\begin{tcolorbox}
+一般如果试验中只有两个样本点，非黑即白、非正即负，我们就可以用两点分布描述。两点分布的使用场景非常少。
+\end{tcolorbox}
+
+%============================================================
+\subsection{拓展讨论：密度函数的物理意义}
+
+\begin{tcolorbox}
+离散变量的分布律的意义是清晰的，每个点代表基本事件的发生概率。但连续变量的密度函数的意义并不十分清晰，本节讨论密度函数的物理意义，以求能直观地把握这个概念。
+\end{tcolorbox}
+
+若有一维无限长细线，总质量为$M$但分布不均匀，已知线密度$\rho \left( l \right) $，$l$为距原点的距离，任取一段$\left[ l_1,l_2 \right] $，该段质量占比为：
+\[
+\frac{m}{M}=\int_{l_1}^{l_2}{\frac{\rho \left( l \right)}{M}\cdot dl}
+\]
+
+若考虑一维无限长带电细线，总电荷量为$Q$但分布不均匀，已知电密度$\rho \left( l \right) $，任取一段$\left[ l_1,l_2 \right] $，该段电荷占比为：
+\[
+\frac{q}{Q}=\int_{l_1}^{l_2}{\frac{\rho \left( l \right)}{Q}\cdot dl}
+\]
+
+再考虑变速运动，若速度随时间变化且有规律$v=v\left( t \right) $，则在某时段走过的路程占总路程$S$：
+\[
+\frac{s}{S}=\int_{t_1}^{t_2}{\frac{v\left( t \right)}{S} \cdot dt}
+\]
+
+对比概率计算公式：
+\[
+P\left\{ a<X\leqslant b \right\} =\int_a^b{f\left( x \right) \cdot dx}
+\]
+容易发现，概率$P\left\{ a<X\leqslant b \right\} $表示了一段范围内某个物理量的占比，密度函数$f\left( x \right) $刻画了该物理量的分布情况。根据$\rho \left( l \right) $我们可以知道哪里重，根据$v \left( t \right) $我们可以知道哪个时段走得多。同样道理，根据密度函数，我们可以知道$X$在哪里出现的概率大。关联到具体事件，我们就可以知道哪些事件容易发生。所以，我们通常用“占比大”、“出现多”来指代概率大。
+
+~
+
+{\bf 密度函数的物理意义是反映了一个物理量在某个范围内的占比。}这个“占比”就是概率，而“范围”可以是空间上的一个段，也可以是时间上的一个段。以质量为例，可以认为密度函数具有量纲$\left[ \mathrm{m}^{-1} \right] $。
+
+
+
+

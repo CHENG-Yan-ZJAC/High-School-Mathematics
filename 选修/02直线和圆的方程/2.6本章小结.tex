@@ -1,0 +1,64 @@
+\section{本章小结}
+
+本章用代数的方法讨论了直线和圆。注意，我们有了第一章的知识，学习时更要注重数形结合。学习和做题时，必须从几何出发，在理解几何关系的基础上运用代数的方法。
+
+%============================================================
+\subsection{习题}
+
+\begin{example}[拓广探索20，难度：$\star $]
+已知圆$C:\left( x-1 \right) ^2+\left( y-2 \right) ^2=25$，直线$l:\left( 2m+1 \right) x+\left( m+1 \right) y-7m-4=0$。
+\begin{enumerate}
+    \item 求证：直线$l$恒过定点。
+    \item 直线$l$被圆$C$截得的弦何时最长、何时最短？并求截得的弦长最短时$m$的值以及最短弦长。
+\end{enumerate}
+\end{example}
+
+解一：
+
+（1）恒过定点，表示取$m_1\ne m_2$生成两条直线，交点必须和$m_1,m_2$无关，联立直线方程：
+\[
+\begin{cases}
+	\left( 2m_1+1 \right) x+\left( m_1+1 \right) y-7m_1-4=0\\
+	\left( 2m_2+1 \right) x+\left( m_2+1 \right) y-7m_2-4=0\\
+\end{cases}
+\]
+消元得$\left( m_2-m_1 \right) y-\left( m_2-m_1 \right) =0$，可见只有当$y=1$时与$m_1,m_2$无关，带入直线方程得$\left( 2m+1 \right) x-6m-3=0$，易得恒过$\left( 3,1 \right) $。
+
+（2）易得恒定点在园内，于是弦有最短且垂直于直径方向，否则园外点可以相切，最短为0，最长弦自然是直径。略。
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[line join=round, scale=0.3]
+\pgfmathparse{0.6/0.3}
+\mydrawxy{0}{7}{0}{8}
+\draw[thick] (1,2) circle(5);
+\coordinate[label=left: {$C\left( 1,2 \right) $}] (C) at (1,2);
+\coordinate[label=right:{$P\left( 3,1 \right) $}] (P) at (3,1);
+\fill (C) circle (\pgfmathresult mm);
+\fill (P) circle (\pgfmathresult mm);
+\draw[dashed] ($(C)!-3.0!(P)$)--($(C)!3.0!(P)$) (0,-5)--(6,7);
+\end{tikzpicture}
+\end{figure}
+
+解二：
+
+（1）过恒定点的意思是有一点$\left( x_0,y_0 \right) $必然在直线上，而且不依赖于$m$的值，也就是说该点坐标的表达式中不能出现$m$，将直线写成：
+\[
+\left( 2x_0+y_0-7 \right) m+x_0+y_0-4=0
+\]
+要使之不出现$m$，则有：
+\[
+\begin{cases}
+	2x_0+y_0-7=0\\
+	x_0+y_0-4=0\\
+\end{cases}
+\]
+可得$\left( x_0,y_0 \right) =\left( 3,1 \right) $。
+
+\begin{tcolorbox}
+理解“恒过一点”的几何含义，本题没有难度。
+\end{tcolorbox}
+
+
+
+

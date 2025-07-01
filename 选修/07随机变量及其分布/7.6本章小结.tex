@@ -1,0 +1,198 @@
+\section{本章小结}
+
+本章介绍了随机变量和分布。我们将事件和概率进行数学上的抽象，上升为函数，用函数刻画概率，描绘生活中常见的概率的分布规律。
+
+常见分布如下。
+\begin{table}[h]
+\centering
+\begin{tabular}{ll}
+    \toprule
+    \multicolumn{1}{c}{分布} & \multicolumn{1}{c}{含义、用途}  \\
+    \midrule
+    二项分布$B\left( n,p \right) $ & $n$重伯努利试验中发生$x$次的概率分布。\\
+    超几何分布$H\left( M,N,n \right) $ & 不放回抽取中，抽到含$x$个次品的概率分布。\\
+    正态分布$N\left( \mu ,\sigma ^2 \right) $ & 描述某指标的离散度。\\
+    \bottomrule
+\end{tabular}
+\end{table}
+
+此外还有几何分布、均匀分布、指数分布等，略。
+
+%============================================================
+\subsection{习题}
+
+\begin{example}[复习巩固3，难度：$\star $]
+假设有两箱零件，第一箱内装有10件，其中有2件次品；第二项内装有20件，其中有3件次品。现从两箱中随意挑选一箱，然后从该箱中随机取1个零件。
+\begin{enumerate}
+    \item 求取出的零件是次品的概率；
+    \item 已知取出的是次品，求它是从第一箱取出的概率。
+\end{enumerate}
+\end{example}
+
+解：
+
+（1）全概率问题，易得：
+\[
+P\left( A \right) =0.5\cdot \frac{2}{10}+0.5\cdot \frac{3}{20}=0.175
+\]
+
+（2）
+\[
+P\left( B \middle| A \right) =\frac{P\left( BA \right)}{P\left( A \right)}=\frac{0.5\cdot \frac{2}{10}}{0.175}=0.571429
+\]
+
+\begin{tcolorbox}
+本题考察全概率公式和条件概率，没有难度。
+\end{tcolorbox}
+
+~
+
+\begin{example}[复习巩固5，难度：$\star \star $]
+已知随机变量$X$取所有的值$1,2,\cdots ,n$是等可能的，且$E\left( X \right) =10$，求$n$的值。
+\end{example}
+
+解：
+\begin{align*}
+E\left( X \right) &=1\cdot \frac{1}{n}+2\cdot \frac{1}{n}+\cdots +n\cdot \frac{1}{n} \\
+&=\frac{1}{n}\cdot \sum_{i=1}^n{i}=\frac{1}{n}\cdot \frac{n\left( 1+n \right)}{2}=\frac{1+n}{2}=10
+\end{align*}
+得$n=19$。
+
+\begin{tcolorbox}
+本题结合了数列的知识。
+\end{tcolorbox}
+
+~
+
+\begin{example}[复习巩固6，难度：$\star $]
+已知每门大炮击中目标的概率都是0.3，现在$n$门大炮同时对某一目标各射击一次。
+\begin{enumerate}
+    \item 当$n=10$时，求恰好击中目标3次的概率（精确到0.001）；
+    \item 如果使目标至少被击中一次的概率超过95\%，至少需要多少门大炮？
+\end{enumerate}
+\end{example}
+
+解：
+
+（1）是典型的二项分布，易得：
+\[
+P\left\{ X=3 \right\} =C_{10}^{3}\cdot 0.3^3\cdot \left( 1-0.3 \right) ^{10-3}=0.266828
+\]
+
+（2）题目也即没有击中的概率小于5\%，有：
+\begin{align*}
+&\because P\left\{ X=0 \right\} =C_{n}^{0}\cdot 0.3^0\cdot \left( 1-0.3 \right) ^{n-0}<0.05 \\
+&\therefore 1\cdot 1\cdot 0.7^n<0.05 \\
+&\therefore n>\log _{0.7}0.05=\frac{\ln 0.05}{\ln 0.7}=8.39905
+\end{align*}
+至少需要9门。
+
+\begin{tcolorbox}
+本题（2）转换成不击中能极大减小计算量。
+\end{tcolorbox}
+
+~
+
+\begin{example}[综合运用9，难度：$\star $]
+假设一份某种意外伤害保险费为20元，每次赔付金额为50万元。一家保险公司一年能销售10万份保单，而每一份保单需要赔付的概率为$10^{-5}$。利用计算工具求（精确到0.0001）：
+\begin{enumerate}
+    \item 这家保险公司在这个险种上亏本的概率；
+    \item 这家保险公司在这个险种上一年内获利不少于100万元的概率？
+\end{enumerate}
+\end{example}
+
+解：
+
+本题为典型的二项分布问题。
+
+（1）易得收益$20\cdot 100000=2000000$，也即出现4次以上（不包含4次）赔付就亏本，于是：
+\begin{align*}
+&P\left\{ X=0 \right\} =C_{100000}^{0}\cdot \left( 10^{-5} \right) ^0\cdot \left( 1-10^{-5} \right) ^{100000-0}=0.367878 \\
+&P\left\{ X=1 \right\} =C_{100000}^{1}\cdot \left( 10^{-5} \right) ^1\cdot \left( 1-10^{-5} \right) ^{100000-1}=0.367881 \\
+&P\left\{ X=2 \right\} =C_{100000}^{2}\cdot \left( 10^{-5} \right) ^2\cdot \left( 1-10^{-5} \right) ^{100000-2}=0.183941 \\
+&P\left\{ X=3 \right\} =C_{100000}^{3}\cdot \left( 10^{-5} \right) ^3\cdot \left( 1-10^{-5} \right) ^{100000-3}=0.0613129 \\
+&P\left\{ X=4 \right\} =C_{100000}^{4}\cdot \left( 10^{-5} \right) ^4\cdot \left( 1-10^{-5} \right) ^{100000-4}=0.0153279 \\
+&1-\sum_{i=0}^4{P\left\{ X=i \right\}}=1-0.99634=0.00365962
+\end{align*}
+亏本的概率为0.366\%。
+
+（2）即赔付0、1次的概率：
+\[
+\sum_{i=0}^1{P\left\{ X=i \right\}}=0.367878+0.367881=0.735759
+\]
+
+\begin{tcolorbox}
+本题考察二项分布的概念。
+\end{tcolorbox}
+
+~
+
+\begin{example}[拓广探索10，难度：$\star \star \star \star $]
+甲、乙、丙三人相互做传球训练，第1次由甲将球传出，每次传球时，传球者都等可能地将球传给另外两个人中的任何一人。
+求$n$次传球后球在甲手中的概率。
+\end{example}
+
+解：
+
+即求$P\left\{ X=n \right\} $的表达式，假设我们知道这个表达式了，则$n+1$次后球在甲手中的概率：
+\[
+P\left\{ X=n+1 \right\} =\frac{1-P\left\{ X=n \right\}}{2}\cdot \frac{1}{2}\cdot 2=\frac{1-P\left\{ X=n \right\}}{2}
+\]
+其中，$1-P\left\{ X=n \right\} /2$表示乙丙两人每人得球概率，除以2表示他们各自都有一半的可能传给甲，再乘以2表示两人一共传给甲的概率。
+稍作化简：
+\begin{align*}
+&P\left\{ X=n+1 \right\} +C=-\frac{1}{2}\cdot \left( P\left\{ X=n \right\} -2C-1 \right) \\
+&C=-2C-1 \\
+&C=-\frac{1}{3} \\
+&P\left\{ X=n+1 \right\} -\frac{1}{3}=-\frac{1}{2}\cdot \left( P\left\{ X=n \right\} -\frac{1}{3} \right)
+\end{align*}
+可见$P\left\{ X=n \right\} -1/3$是一个等比数列，于是：
+\begin{align*}
+&\because P\left\{ X=1 \right\} -\frac{1}{3}=0-\frac{1}{3}=-\frac{1}{3} \\
+&\therefore P\left\{ X=n \right\} -\frac{1}{3}=\left( -\frac{1}{3} \right) \cdot \left( -\frac{1}{2} \right) ^{n-1} \\
+&\therefore P\left\{ X=n \right\} =\left( -\frac{1}{3} \right) \cdot \left( -\frac{1}{2} \right) ^{n-1}+\frac{1}{3}
+\end{align*}
+
+\begin{tcolorbox}
+本题是马尔科夫链，略有超纲，但结合数列的知识还是能解。
+\end{tcolorbox}
+
+~
+
+\begin{example}[拓广探索11，难度：$\star \star $]
+某单位有10000名职工，想通过验血的方法筛查乙肝病毒携带者。假设每人携带乙肝病毒的概率为5\%，如果对每人的血样逐一化验，就需要化验10000次。统计专家提出了一种化验方法：随机地按5人一组分组，然后将各组5人的血样混合再化验。如果混合血样呈阴性，说明这5人全部阴性；如果混合血样呈阳性，说明其中至少有一人的血样呈阳性，就需要对每人再分别化验一次。
+\begin{enumerate}
+    \item 按照这种化验方法能减少化验次数吗？
+    \item 如果每人携带乙肝病毒的概率为2\%，按照$k$人一组，$k$取多大时化验次数最少？
+\end{enumerate}
+\end{example}
+
+解：
+
+（1）可以通过考察数学期望判断化验次数。易得单位有500名携带者，于是5人一组存在阳性的概率：
+\[
+1-P\left\{ X=0 \right\} =1-0.95^5=0.226219
+\]
+化验次数：
+\[
+\frac{10000}{5}+5\cdot 0.226219=2001.13
+\]
+可见确实能减少次数。
+
+（2）概率为2\%时，有200人携带，于是$k$人一组的化验次数：
+\begin{align*}
+&P\left( k \right) =1-P\left\{ X=0 \right\} =1-0.98^k \\
+&f\left( k \right) =\frac{10000}{k}+P\left( k \right) \cdot k=\frac{10000}{k}+k-0.98^k\cdot k
+\end{align*}
+即求函数$f\left( k \right) $的最值，求导即可，有点复杂，略。
+\[
+f'\left( x \right) =\frac{-10000}{k^2}+1-0.98^k\left( \ln 0.98\cdot k+1 \right)
+\]
+
+\begin{tcolorbox}
+本题关键捋清分组的过程。
+\end{tcolorbox}
+
+
+
+

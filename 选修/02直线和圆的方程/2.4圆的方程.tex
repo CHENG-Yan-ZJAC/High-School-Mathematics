@@ -1,0 +1,97 @@
+\section{圆的方程}
+
+本节要点：
+\begin{itemize}
+    \item 掌握2种圆的代数形式；
+    \item 深刻理解它们代表的几何意义。
+\end{itemize}
+
+~
+
+{\bf 标准方程}：
+\[
+\left( x-a \right) ^2+\left( y-b \right) ^2=r^2
+\]
+
+{\bf 一般方程}：
+\[
+x^2+y^2+Dx+Ey+F=0
+\]
+
+\begin{tcolorbox}
+详细阅读所有例题。例2和例4都是已知求三角形的外接圆，分别用标准方程和一般方程，体会两者的计算量。例5中$M$是中点，若$M$不是中点，而是某个等比例点，则$M$的运动轨迹是什么样子？再如果$A$是任意轨迹，则$M$的运动轨迹和$A$的轨迹有什么关系？早期钟表内部的细小零件的制作就是依据这个原理，XML。
+\end{tcolorbox}
+
+%============================================================
+\subsection{拓展讨论：圆的定义}
+
+我们给出圆的定义，然后推导圆的公式。
+
+\begin{definition}[圆]
+设二维平面中有一定点$P_0$，若平面上的点和$P_0$的距离都是$r>0$，则称这些点组成的集合为{\bf 圆}，常用$C$表示，即：
+\[
+C:=\left\{ P \middle| \left| \overrightarrow{P_0P} \right|=r \right\}
+\]
+若令$P=\left( x,y \right) ,P_0=\left( x_0,y_0 \right) $，则圆可以表示为下列的{\bf 向量方程}：
+\[
+\left( x-x_0 \right) ^2+\left( y-y_0 \right) ^2=r^2
+\]
+使用复数的概念，可得到{\bf 参数方程}：
+\[
+\begin{cases}
+	x-x_0=r\cos \theta\\
+	y-y_0=r\sin \theta\\
+\end{cases} \quad \theta \in \left[ 0,2\pi \right)
+\]
+\end{definition}
+
+再考虑一个问题，考察课本给出的圆的一般方程
+\[
+x^2+y^2+Dx+Ey+F=0
+\]
+$A,B,C$去哪里了？
+
+事实上，关于$x,y$的二次曲线，更一般的应该是：
+\[
+Ax^2+By^2+Cxy+Dx+Ey+F=0
+\]
+是一个倾斜的椭圆，当$C=0$时，椭圆归正，即长短轴平行于{it xy}轴，进一步地，当$A=B$时，为圆。
+
+%============================================================
+\subsection{习题}
+
+\begin{example}[综合运用5，难度：$\star \star $]
+已知圆的一条直径的端点分别是$A\left( x_1,y_1 \right) $，$B\left( x_2,y_2 \right) $，求证此圆的方程是
+\[
+\left( x-x_1 \right) \left( x-x_2 \right) +\left( y-y_1 \right) \left( y-y_2 \right) =0
+\]
+\end{example}
+
+解：
+
+用向量的方法，向量表示的点在圆上，则构成直角三角形，两个直角边的内积为0。
+
+\begin{tcolorbox}
+本题联合向量内积的几何意义，一句话就能证明，非常容易。
+\end{tcolorbox}
+
+~
+
+\begin{example}[综合运用7，难度：$\star $]
+已知等腰三角形$ABC$的一个顶点为$A\left( 4,2 \right) $，底边的一个端点为$B\left( 3,5 \right) $，求底边的另一个端点$C$的轨迹方程，并说明它是什么图形。
+\end{example}
+
+解：
+
+显然$AB=AC$，但$A,B,C$不能构成直线，于是
+\[
+\left( x-4 \right) ^2+\left( y-2 \right) ^2=10 \qquad x\ne 3,5
+\]
+
+\begin{tcolorbox}
+此题不难，但需注意$x$的取值。
+\end{tcolorbox}
+
+
+
+

@@ -1,0 +1,159 @@
+%\documentclass[utf8]{book}
+\documentclass[10.5pt,a4paper]{ctexbook} % 五号字，A4
+
+
+%========== 包 ==========
+%\usepackage[UTF8]{ctex}                   % chinese
+\usepackage{anyfontsize}                  % 10.5pt in ctexbook
+\usepackage{booktabs}                     % \newpage
+\usepackage{tcolorbox}                    % frame box
+\usepackage{enumitem}                     % item
+\usepackage{graphicx}                     % images
+\usepackage{amsmath, amsthm, amssymb, bm} % math
+\usepackage{hyperref, mathrsfs}           % ref
+\usepackage{esint}                        % closed geometry integral symbol
+\usepackage{pgfplots, tikz}               % tikzpicture
+\usetikzlibrary{patterns,arrows,positioning,calc,fadings,shapes,decorations.markings,intersections,through,angles,quotes,decorations.pathreplacing,calligraphy}
+
+
+%========== 环境 ==========
+\newtheorem{definition}{定义}[section]
+\newtheorem{example}{例}[section]
+\newtheorem{theorem}{定理}[section]
+\newtheorem{lemma}[theorem]{引理}
+\newtheorem{corollary}[theorem]{推论}
+\newtheorem{proposition}[theorem]{命题}
+
+
+%========== enum和item设置 ==========
+%\ctexset{section={beforeskip=50.0ex plus 0.2ex minus .2ex}}
+%\ctexset{section={beforeskip=\doublespace}}
+%\ctexset{section={format=\heiti\centering\zihao{-3},beforeskip=20cm},subsection={beforeskip=6ex}}
+\ctexset{section={beforeskip=5ex},subsection={beforeskip=5ex}}
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
+\setenumerate[1]{itemsep=0pt,partopsep=0pt,parsep=\parskip,topsep=0pt,left=\parindent}
+\setitemize[1]{itemsep=0pt,partopsep=0pt,parsep=\parskip,topsep=0pt,left=\parindent}
+\setdescription{itemsep=0pt,partopsep=0pt,parsep=\parskip,topsep=5pt}
+\graphicspath{{./figures}}
+
+
+%%% \mydrawxy{x_lim_left}{x_lim_right}{y_lim_left}{y_lim_right}
+\newcommand \mydrawxy[4]
+{
+\coordinate (x1) at (#1,0);
+\coordinate (y1) at (0,#3);
+\coordinate[label=right:{$x$}] (x2) at (#2,0);
+\coordinate[label=above:{$y$}] (y2) at (0,#4);
+\draw[->,red] (x1)--(x2);
+\draw[->,red] (y1)--(y2);
+}
+
+%%% \mydrawsquare[length=1]{A}{B}{C}{D}
+\newcommand \mydrawsquare[5][1]
+{
+\coordinate[label=left: {$#2$}] (#2) at (0,0);            % A
+\coordinate[label=right:{$#3$}] (#3) at ($(#2)+(#1,0)$);  % B
+\coordinate[label=right:{$#4$}] (#4) at ($(#2)+(#1,#1)$); % C
+\coordinate[label=left: {$#5$}] (#5) at ($(#2)+(0,#1)$);  % D
+\draw[thick] (#2)--(#3)--(#4)--(#5)--(#2);
+}
+
+%%% \mydrawhyperbola{x_lim}{a}{b}
+\newcommand \mydrawhyperbola[3]
+{
+\draw[thick,domain=#2:#1,samples=200] plot ( \x,{ sqrt(((\x)^2/#2/#2-1)*#3*#3)});
+\draw[thick,domain=#2:#1,samples=200] plot ( \x,{-sqrt(((\x)^2/#2/#2-1)*#3*#3)});
+\draw[thick,domain=#2:#1,samples=200] plot (-\x,{ sqrt(((\x)^2/#2/#2-1)*#3*#3)});
+\draw[thick,domain=#2:#1,samples=200] plot (-\x,{-sqrt(((\x)^2/#2/#2-1)*#3*#3)});
+}
+
+%%% \mydrawxyz{x_lim_left}{x_lim_right}{y_lim_left}{y_lim_right}{z_lim_left}{z_lim_right}
+\newcommand \mydrawxyz[6]
+{
+\coordinate (x1) at (#1,0,0);
+\coordinate (y1) at (0,#3,0);
+\coordinate (z1) at (0,0,#5);
+\coordinate[label=below left:{$x$}] (x2) at (#2,0,0);
+\coordinate[label=right:     {$y$}] (y2) at (0,#4,0);
+\coordinate[label=above:     {$z$}] (z2) at (0,0,#6);
+\draw[->,red] (x1)--(x2);
+\draw[->,red] (y1)--(y2);
+\draw[->,red] (z1)--(z2);
+}
+
+%%% \mydrawcube[length=1]{A}{B}{C}{D}{A'}{B'}{C'}{D'}
+\newcommand \mydrawcube[9][1]
+{
+\coordinate[label=left: {$#2$}] (#2) at (0,0,0);             % A
+\coordinate[label=right:{$#3$}] (#3) at ($(#2)+(0,#1,0)$);   % B
+\coordinate[label=right:{$#4$}] (#4) at ($(#2)+(-#1,#1,0)$); % C
+\coordinate[label=left: {$#5$}] (#5) at ($(#2)+(-#1,0,0)$);  % D
+\coordinate[label=left: {$#6$}] (#6) at ($(#2)+(0,0,#1)$);   % A'
+\coordinate[label=right:{$#7$}] (#7) at ($(#6)+(0,#1,0)$);   % B'
+\coordinate[label=right:{$#8$}] (#8) at ($(#6)+(-#1,#1,0)$); % C'
+\coordinate[label=left: {$#9$}] (#9) at ($(#6)+(-#1,0,0)$);  % D'
+\draw[thick] (#6)--(#9)--(#8)--(#4)--(#3);                   % A'-D'-C'-C-B
+\draw[thick] (#7)--(#6)--(#2)--(#3)--(#7)--(#8);             % B'-A'-A-B-B'-C'
+\draw[dashed] (#2)--(#5);
+\draw[dashed] (#9)--(#5)--(#4);
+}
+
+
+%========== 文档 ==========
+\raggedbottom
+\begin{document}
+
+
+%========== 封面 ==========
+\title{{\Huge{\textbf{高中数学（选修）}}}\\——学习笔记}
+\author{程琰}
+\date{\today}
+%\linespread{1.5}
+\maketitle
+
+
+% %========== 前言 ==========
+% \newpage
+% \pagenumbering{roman}
+% \setcounter{page}{1}
+% \begin{center}
+%     \Huge\textbf{前言}
+% \end{center}
+% 这是笔记的前言部分。这是笔记的前言部分。这是笔记的前言部分。这是笔记的前言部分。这是笔记的前言部分。这是笔记的前言部分。这是笔记的前言部分。
+% \begin{flushright}
+%     \begin{tabular}{c}
+%         程琰\\
+%         \today
+%     \end{tabular}
+% \end{flushright}
+
+
+%========== 目录 ==========
+\newpage
+\pagenumbering{Roman}
+\setcounter{page}{1}
+\tableofcontents
+
+
+%========== 正文 ==========
+\newpage
+\setcounter{page}{1}
+\setcounter{chapter}{-1}
+\pagenumbering{arabic}
+\input{00前言/00前言}
+\input{01空间向量与立体几何/1.0空间向量与立体几何}
+\input{02直线和圆的方程/2.0直线和圆的方程}
+\input{03圆锥曲线的方程/3.0圆锥曲线的方程}
+\input{04数列/4.0数列}
+\input{05一元函数的导数及其应用/5.0一元函数的导数及其应用}
+\input{06计数原理/6.0计数原理}
+\input{07随机变量及其分布/7.0随机变量及其分布}
+\input{08成对数据的统计分析/8.0成对数据的统计分析}
+
+
+\end{document}
+
+
+
+

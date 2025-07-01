@@ -1,0 +1,83 @@
+\section{数列的概念}
+
+本节要点：
+\begin{itemize}
+    \item 掌握数列的概念；
+    \item 掌握数列前$n$项和的概念。
+\end{itemize}
+
+~
+
+数列及其前$n$项的和没有难度。反复体会本节第2个思考题，如何从$S_n$推导$a_n$，具有典型意义。
+
+注意两点：
+\begin{itemize}
+    \item 数列可以看作是函数的离散化，所以所有对函数的考察和工具，都应用于数列；
+    \item 在微积分中，我们一般不关心$a_n$，而是关心当$n\rightarrow \infty $时$S_n$的敛散性，称为级数，因为级数可以描述一个数。
+\end{itemize}
+
+%============================================================
+\subsection{习题}
+
+
+\begin{example}[综合运用5，难度：$\star $]
+传说古希腊毕达哥拉斯学派的数学家用沙砾和小石子来研究数。他们根据沙砾或小石子所排列的形状把数分成许多类，如图中第一行的1，3，6，10称为三角形数，第二行的1，4，9，16称为正方形数，第三行的1，5，12，22称为五边形数。请你分别写出三角形数、正方形数、五边形数所构成的数列的第5项和第6项。
+\end{example}
+
+解：
+
+三角形数。观察图形发现规律：
+\[
+a_n-a_{n-1}=n
+\]
+也就是说它们的差构成公差为1的等差数列。于是，可另$b_n=n$，得：
+\[
+a_n=S_n=\sum_{i=1}^n{b_i}=\frac{n\left( 1+n \right)}{2}
+\]
+
+正方形数。不难发现是正方形的面积，于是：
+\[
+a_n=n^2
+\]
+
+五边形数。令$\varDelta a_n=a_n-a_{n-1}$，不难发现
+\[
+\varDelta a_n=3\left( n-1 \right) +1
+\]
+也是一个等比数列，于是
+\[
+a_n=S_n=\sum_{i=1}^n{\varDelta a_n}=\frac{n\left[ 1+3\left( n-1 \right) +1 \right]}{2}=\frac{n\left( 3n-1 \right)}{2}
+\]
+
+\begin{tcolorbox}
+本题只是求解具体的项，没有难度。若是求通项公式，需要仔细观察。
+\end{tcolorbox}
+
+~
+
+\begin{example}[拓广探索7，难度：$\star $]
+已知函数$f\left( x \right) =\frac{2^x-1}{2^x},x\in \mathbb{R} $，设数列$\left\{ a_n \right\} $的通项公式为$a_n=f\left( n \right) ,n\in \mathbb{N} ^+$。
+\begin{enumerate}
+    \item 求证$a_n\geqslant \frac{1}{2}$。
+    \item $\left\{ a_n \right\} $是递增数列还是递减数列？为什么？
+\end{enumerate}
+\end{example}
+
+解：
+
+（1、2）易得$a_n=\frac{2^n-1}{2^n}=1-\left( \frac{1}{2} \right) ^n$，可令$n_1<n_2$
+\[
+a_{n_1}-a_{n_2}=\left[ 1-\left( \frac{1}{2} \right) ^{n_1} \right] -\left[ 1-\left( \frac{1}{2} \right) ^{n_2} \right] =\left( \frac{1}{2} \right) ^{n_2}-\left( \frac{1}{2} \right) ^{n_1}<0
+\]
+可见$a_n\geqslant \frac{1}{2}$递增，于是
+\[
+a_n\geqslant a_1=\frac{1}{2}
+\]
+
+\begin{tcolorbox}
+本题没有难度，但本题是一个很好的数列和函数关系的例子。
+\end{tcolorbox}
+
+
+
+
